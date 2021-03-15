@@ -16,9 +16,20 @@ const CityLocation = ({ visible, city, modalClose }) => {
     });
   }
 
+  const onClose = () => modalClose();
+
   return (
-    <ModalWindow visible={visible} onWindowClose={() => modalClose()}>
-      <div style={mapElStyle} ref={mapEl} />
+    <ModalWindow visible={visible} onClose={onClose}>
+      <div className='citylocation' style={mapElStyle} ref={mapEl} />
+      <div className='modal-citylocation__control'>
+        <button
+          className='modal-citylocation__btn-close'
+          onClick={onClose}
+          title='Close window'
+        >
+          Close
+        </button>
+      </div>
     </ModalWindow>
   );
 };
