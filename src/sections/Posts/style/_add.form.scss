@@ -1,0 +1,125 @@
+.add-form {
+  max-width: 600px;
+}
+
+.add-form__label {
+  display: block;
+}
+
+.add-form__field {
+  display: block;
+  margin-bottom: 15px;
+  background-color: $color-hue-2;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 12px;
+}
+
+.add-form__element {
+  margin-bottom: 15px;
+}
+
+.add-form__info {
+  padding: 4px 0 0 0;
+  font-size: 13px;
+  display: flex;
+}
+
+.add-form__input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px;
+  color: $color-base-ext;
+  background-color: $color-hue-2;
+  font-size: 14px;
+  border-radius: 2px;
+
+  &::placeholder {
+    color: $color-common;
+  }
+
+  &:focus {
+    background-color: $color-common;
+  }
+}
+
+.add-form__textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px;
+  color: $color-base-ext;
+  background-color: $color-hue-2;
+  font-size: 14px;
+  height: 140px;
+  border-radius: 2px;
+
+  &::placeholder {
+    color: $color-common;
+  }
+
+  &:focus {
+    background-color: $color-common;
+  }
+}
+
+.add-form__counter {
+  margin-left: auto;
+  color: $color-util;
+}
+
+.add-form__error {
+  color: $color-hover-1;
+  font-size: 110%;
+}
+
+.add-form__input--error {
+  border-color: $color-hue-3;
+}
+
+.add-form__textarea--error {
+  border-color: $color-hue-3;
+}
+
+.add-form__actions {
+  max-width: 600px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 20px;
+}
+
+.add-form__btn-submit,
+.add-form__dlink-back {
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  color: $color-extra;
+  background-color: $color-base;
+  border: 1px solid transparent;
+  font-size: 14px;
+}
+
+.add-form__btn-submit {
+  &:hover,
+  &:focus {
+    background-color: $color-hover-0;
+  }
+
+  &:disabled {
+    color: $color-hue-1;
+    border-color: $color-hue-1;
+    background-color: $color-hue-0;
+    cursor: default;
+  }
+}
+
+.add-form__dlink-back {
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    background-color: $color-hover-1;
+  }
+}

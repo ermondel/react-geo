@@ -1,17 +1,74 @@
 import React from 'react';
-import { ErrorRemote, SpinnerBig } from '@subcomponents/UtilImages';
 import { Link } from 'react-router-dom';
+import { ErrorRemote, SpinnerBig, SpinnerSmall } from '@subcomponents/UtilImages';
 
-export const RemoveSpinner = ({ title }) => (
-  <div className='remove-post'>
-    <p className='remove-post__title'>{title}</p>
-    <div className='remove-post__spinner-img'>
-      <SpinnerBig />
+export const ModalRemovePostConfirm = ({ title, onRemove, onCancel }) => (
+  <div className='modal-remove-post'>
+    <p className='modal-remove-post__text'>Are you sure you want to remove the post?</p>
+    <p className='modal-remove-post__postname'>{title}</p>
+    <div className='modal-remove-post__control'>
+      <button className='modal-remove-post__btn-remove' onClick={onRemove}>
+        Remove
+      </button>
+      <button className='modal-remove-post__btn-cancel' onClick={onCancel}>
+        Cancel
+      </button>
     </div>
-    <div className='remove-post__spinner-text'>
-      <p>Request to a remote server</p>
-      <p>This may take some time</p>
-      <p>Please wait</p>
+  </div>
+);
+
+export const ModalRemovePostSpinner = () => (
+  <div className='modal-remove-post'>
+    <p className='modal-remove-post__text modal-remove-post__text--removing'>
+      Removing ...
+    </p>
+    <div className='modal-remove-post__spinner'>
+      <SpinnerSmall />
+    </div>
+    <p className='modal-remove-post__message'>
+      Request to a remote server. This may take some time. Please wait.
+    </p>
+  </div>
+);
+
+export const ModalRemovePostSuccess = ({ title, onClose }) => (
+  <div className='modal-remove-post'>
+    <p className='modal-remove-post__text modal-remove-post__text--success'>
+      Post successfully deleted
+    </p>
+    <p className='modal-remove-post__postname'>{title}</p>
+    <div className='modal-remove-post__control'>
+      <button
+        className='modal-remove-post__btn-close'
+        onClick={onClose}
+        title='Close window'
+      >
+        Close
+      </button>
+    </div>
+  </div>
+);
+
+export const ModalRemovePostError = ({ onClose }) => (
+  <div className='modal-remove-post'>
+    <p className='modal-remove-post__text modal-remove-post__text--error'>
+      Error deleting post
+    </p>
+    <div className='modal-remove-post__error-img'>
+      <ErrorRemote />
+    </div>
+    <p className='modal-remove-post__message'>
+      The remote server is not responding. Perhaps it is overloaded with requests. Please
+      come back later.
+    </p>
+    <div className='modal-remove-post__control'>
+      <button
+        className='modal-remove-post__btn-close'
+        onClick={onClose}
+        title='Close window'
+      >
+        Close
+      </button>
     </div>
   </div>
 );
@@ -20,9 +77,7 @@ export const LoadingSpinner = () => (
   <div className='posts-spinner'>
     <SpinnerBig />
     <div>
-      <p className='posts-spinner__loading-message'>
-        Request data from a remote server
-      </p>
+      <p className='posts-spinner__loading-message'>Request data from a remote server</p>
       <p>This may take some time</p>
       <p>Please wait</p>
     </div>
@@ -44,25 +99,9 @@ export const SavingSpinner = () => (
   <div className='posts-spinner'>
     <SpinnerBig />
     <div>
-      <p className='posts-spinner__loading-message'>
-        Saving data to the remote server
-      </p>
+      <p className='posts-spinner__loading-message'>Saving data to the remote server</p>
       <p>This may take some time</p>
       <p>Please wait</p>
-    </div>
-  </div>
-);
-
-export const RemoveError = ({ title }) => (
-  <div className='remove-post'>
-    <p className='remove-post__title'>{title}</p>
-    <div className='remove-post__error-img'>
-      <ErrorRemote />
-    </div>
-    <div className='remove-post__error-text'>
-      <p>The remote server is not responding.</p>
-      <p>Perhaps it is overloaded with requests.</p>
-      <p>Please come back later.</p>
     </div>
   </div>
 );
@@ -101,13 +140,6 @@ export const SavingError = () => (
         </Link>
       </p>
     </div>
-  </div>
-);
-
-export const RemoveSuccess = ({ title }) => (
-  <div className='remove-post'>
-    <p className='remove-post__title'>{title}</p>
-    <p className='remove-post__success'>Post successfully deleted</p>
   </div>
 );
 

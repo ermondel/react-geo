@@ -1,0 +1,35 @@
+.list-ctrl__message {
+  margin: 0 0 20px 15px;
+  color: $color-util;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+}
+
+.list-ctrl__message-text {
+  margin: 0;
+  padding: 9px 12px;
+  border-top: 1px solid $color-hue-2;
+  border-left: 1px solid $color-hue-2;
+  border-bottom: 1px solid $color-hue-2;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.list-ctrl__message-close {
+  padding: 9px 12px;
+  border: 1px solid $color-hue-2;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  color: $color-hue-3;
+  background-color: transparent;
+  font-size: 14px;
+  line-height: 16px;
+
+  &:hover,
+  &:focus {
+    background-color: $color-hue-3;
+    color: white;
+    border-color: $color-hue-3;
+  }
+}

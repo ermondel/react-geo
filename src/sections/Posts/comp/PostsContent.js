@@ -5,7 +5,7 @@ import { fetchPosts, fetchPostsAuth, resetStatus } from '../actions/posts';
 import List from '../subcomp/List';
 import Add from '../subcomp/Add';
 import View from '../subcomp/View';
-import Remove from '../subcomp/Remove';
+import ModalRemovePost from '../subcomp/ModalRemovePost';
 import {
   AuthSpinner,
   AuthSuccess,
@@ -62,7 +62,7 @@ class PostsContent extends Component {
     return (
       <main className='main'>
         {this.renderContent()}
-        <Remove />
+        <ModalRemovePost />
       </main>
     );
   }

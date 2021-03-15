@@ -1,0 +1,15 @@
+.posts-spinner {
+  text-align: center;
+  color: $color-util;
+  text-transform: uppercase;
+  font-size: 90%;
+  margin-top: 15%;
+}
+
+.posts-spinner__loading-message {
+  color: $color-hover-0;
+}
+
+.posts-spinner__auth-message {
+  color: $color-hover-1;
+}
