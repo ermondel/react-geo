@@ -4,14 +4,14 @@ import InfoBlock from '@sidebar/InfoBlock';
 
 const PodcastDetails = ({ podcast }) => {
   const buttons = (
-    <p className='infoblock__btns'>
-      <button className='infoblock__btn-main' title='disabled!'>
+    <div className='podcast-infoblock__btns'>
+      <button className='podcast-infoblock__btn-main' title='disabled!'>
         Play
       </button>
-      <a href='/' className='infoblock__btn-link' title='disabled!'>
+      <a href='/#/podcasts' className='podcast-infoblock__btn-link' title='disabled!'>
         download
       </a>
-    </p>
+    </div>
   );
 
   return podcast ? (
@@ -26,8 +26,6 @@ const PodcastDetails = ({ podcast }) => {
   ) : null;
 };
 
-const mapStateToProps = (state) => ({
-  podcast: state.podcast,
-});
+const mapStateToProps = (state) => ({ podcast: state.podcast });
 
 export default connect(mapStateToProps)(PodcastDetails);

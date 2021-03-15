@@ -15,7 +15,7 @@
   padding: 0;
 
   margin-bottom: 25px;
-  height: 70px;
+  min-height: 70px;
 
   font-weight: normal;
 }
@@ -25,77 +25,37 @@
 }
 
 .infoblock__item {
-  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 
   margin: 0 0 12px 0;
   padding: 0 0 3px 0;
 
-  overflow: hidden;
   border-bottom: 1px dotted $color-minor;
 
   &:hover {
     border-color: $color-hover-1;
   }
+}
 
-  & .l::first-letter {
+.infoblock__key {
+  &::first-letter {
     text-transform: uppercase;
   }
 }
 
-.infoblock__btns {
-  margin: 25px 0 0 0;
-  padding: 0;
-
-  width: 100%;
-  overflow: hidden;
-}
-
-.infoblock__btn-main {
-  padding: 10px 20px;
-  border-radius: 4px;
-
-  background-color: $color-aux;
-  color: $color-detail;
-
-  float: left;
-
-  &:hover,
-  &:focus {
-    background-color: $color-hover-0;
-    color: $color-extra;
-  }
-}
-
-.infoblock__btn-link {
-  display: block;
-  padding: 10px 0px;
-
-  text-decoration: none;
-  color: $color-minor;
-
-  cursor: pointer;
-  float: right;
-
-  &:hover,
-  &:focus {
-    text-decoration: underline;
-    color: $color-hover-0;
-  }
-}
-
 .infoblock__control {
-  width: 100%;
-  overflow: hidden;
-
   margin-bottom: 3px;
 }
 
 .infoblock__btn-close {
+  display: block;
+  margin-left: auto;
+
   color: $color-detail;
   background-color: $color-base;
   border-bottom: 1px dotted transparent;
-
-  float: right;
 
   &:hover,
   &:focus {

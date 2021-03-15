@@ -1,29 +1,45 @@
 import React from 'react';
 
-const InfoBlock = ({ title, data, buttons = null, showControlBtns = false, onClose }) => {
+const InfoBlockItemList = ({ data }) => {
   let itemList = [];
+
   for (let key in data) {
     itemList.push(
       <p className='infoblock__item' key={key}>
-        <span className='l'>{key}</span> <span className='r'>{data[key]}</span>
+        <span className='infoblock__key'>{key}</span>&nbsp;
+        <span className='infoblock__value'>{data[key]}</span>
       </p>
     );
   }
 
-  const controlBtns = showControlBtns ? (
+  if (!itemList.length) {
+    return null;
+  }
+
+  return <div className='infoblock__items'>{itemList}</div>;
+};
+
+const InfoBlockControl = ({ show = false, onClick }) => {
+  if (!show) {
+    return null;
+  }
+
+  return (
     <div className='infoblock__control'>
-      <button onClick={onClose} className='infoblock__btn-close' title='Close block'>
+      <button onClick={onClick} className='infoblock__btn-close' title='Close block'>
         Close
       </button>
     </div>
-  ) : null;
+  );
+};
 
+const InfoBlock = ({ title, data, buttons = null, showControlBtns = false, onClose }) => {
   return (
     <div className='infoblock'>
       <h3 className='infoblock__title'>{title}</h3>
-      {itemList && <div className='infoblock__items'>{itemList}</div>}
+      <InfoBlockItemList data={data} />
       {buttons}
-      {controlBtns}
+      <InfoBlockControl show={showControlBtns} onClick={onClose} />
     </div>
   );
 };
