@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { wikipedia } from '../../../lib/api';
+import { wikipedia } from '@lib/api';
 import { SpinnerBig, ErrorRemote } from '@subcomponents/UtilImages';
 import WikiArticle from './WikiArticle';
 

@@ -5,7 +5,7 @@ import SearchForm from '../subcomp/SearchForm';
 import CommonList from '../subcomp/CommonList';
 import CoverGallery from '../subcomp/CoverGallery';
 import booksSource from '../sources/booksSource';
-import { filterObjListByQuery } from '../../../lib/filters';
+import { filterObjListByQuery } from '@lib/filters';
 
 const BooksContent = (props) => (
   <main className='main'>

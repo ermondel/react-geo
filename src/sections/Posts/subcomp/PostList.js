@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { removePostConfirm } from '../actions/posts';
 import ListItem from './ListItem';
-import { filterObjListByQuery } from '../../../lib/filters';
+import { filterObjListByQuery } from '@lib/filters';
 
 const PostList = ({ postsList, sortType, searchQuery, removePostConfirm }) => {
   let posts;

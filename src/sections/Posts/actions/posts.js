@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { reduxblog, nodeapiserver } from '../../../lib/api';
+import { reduxblog, nodeapiserver } from '@lib/api';
 import {
   POSTS_AUTH_REQUEST,
   POSTS_AUTH_SUCCESS,

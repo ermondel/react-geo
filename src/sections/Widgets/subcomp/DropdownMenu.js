@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { includes } from '../../../lib/str';
+import { includes } from '@lib/str';
 
 const SearchForm = (props) => {
   return (
@@ -45,9 +45,7 @@ const MenuHeader = (props) => {
 
 const OuterMenuLabel = (props) => {
   return props.enabled ? (
-    <div className='dropdown-menu__outer-label'>
-      {props.label || 'Select option'}
-    </div>
+    <div className='dropdown-menu__outer-label'>{props.label || 'Select option'}</div>
   ) : null;
 };
 
@@ -105,8 +103,7 @@ const DropdownMenu = (props) => {
     if (props.selected) return props.selected;
     if (props.defaultValue) {
       return (
-        props.options.find((el) => el.value === props.defaultValue) ||
-        props.options[0]
+        props.options.find((el) => el.value === props.defaultValue) || props.options[0]
       );
     }
     if (props.hasTitle) return defaultOption;

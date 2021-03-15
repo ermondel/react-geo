@@ -1,4 +1,4 @@
-import { nodeapiserver } from '../../../lib/api';
+import { nodeapiserver } from '@lib/api';
 import {
   WEATHER_FORECASTS_FETCH_REQUEST,
   WEATHER_FORECASTS_FETCH_SUCCESS,

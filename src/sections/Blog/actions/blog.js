@@ -1,4 +1,4 @@
-import { jsonplaceholder } from '../../../lib/api';
+import { jsonplaceholder } from '@lib/api';
 import {
   BLOG_POSTS_FETCH_REQUEST,
   BLOG_POSTS_FETCH_SUCCESS,

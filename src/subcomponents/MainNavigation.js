@@ -1,6 +1,6 @@
 import React from 'react';
 import NavItem from '@subcomponents/NavItem';
-import { isChrome } from '../lib/browser';
+import { isChrome } from '@lib/browser';
 
 const MainNavigation = () => (
   <nav className='main-nav'>

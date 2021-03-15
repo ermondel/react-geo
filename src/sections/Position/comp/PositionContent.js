@@ -3,7 +3,7 @@ import BrowserWarning from '../subcomp/BrowserWarning';
 import PositionRequest from '../subcomp/PositionRequest';
 import RequestError from '../subcomp/RequestError';
 import CompassImage from '../subcomp/CompassImage';
-import { isChrome } from '../../../lib/browser';
+import { isChrome } from '@lib/browser';
 
 const PositionContent = ({ wait, error }) => {
   let content;
