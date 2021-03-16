@@ -1,6 +1,5 @@
 import React from 'react';
 import NavItem from '@subcomponents/NavItem';
-import { isChrome } from '@lib/browser';
 
 const MainNavigation = () => (
   <nav className='main-nav'>
@@ -29,11 +28,9 @@ const MainNavigation = () => (
         Board
       </NavItem>
 
-      {isChrome && (
-        <NavItem to='/position' block='main-nav'>
-          Position
-        </NavItem>
-      )}
+      <NavItem to='/position' block='main-nav' visible={!!window.chrome}>
+        Position
+      </NavItem>
 
       <NavItem to='/weather' block='main-nav'>
         Weather

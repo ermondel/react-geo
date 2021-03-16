@@ -2,8 +2,13 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { includesPath } from '@lib/path';
 
-const NavItem = ({ children, to, block }) => {
+const NavItem = ({ children, to, block, visible = true }) => {
   const pathname = useLocation().pathname;
+
+  if (!visible) {
+    return null;
+  }
+
   const toHome = to === '/' && pathname !== '/';
 
   if (!toHome && includesPath(to, pathname)) {
