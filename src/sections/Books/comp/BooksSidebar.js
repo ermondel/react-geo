@@ -7,7 +7,7 @@ const BooksSidebar = () => (
   <div className='sidebar'>
     <ViewMode />
     <BookDetails />
-    <TechBlock list='React, Redux' />
+    <TechBlock list='React, Redux, Grid' />
   </div>
 );
 

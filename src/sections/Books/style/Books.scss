@@ -1,6 +1,25 @@
-/**
- * Book list 
- */
+// search form
+
+.search-form_input {
+  width: 35%;
+  margin: 0 0 35px 0;
+  padding: 9px 12px;
+  font-size: 14px;
+  background-color: $color-hue-2;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  color: $color-base-ext;
+
+  &::placeholder {
+    color: $color-hue-1;
+  }
+
+  &:focus {
+    background-color: $color-extra;
+  }
+}
+
+// book list
 
 .book-list {
   max-width: 1000px;
@@ -77,97 +96,77 @@
   }
 }
 
-/**
- * Covers
- */
+// book covers
 
-.covers {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: flex-start;
+@mixin btn-shadow {
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.covers-item {
-  width: 250px;
+.book-covers {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  grid-gap: 0 10px;
+}
+
+.book-covers__item {
   position: relative;
-  overflow: hidden;
-  margin: 0 1% 3% 1%;
-  -webkit-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.75);
-  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.75);
+
+  &:focus .book-covers__cell,
+  &:hover .book-covers__cell {
+    display: block;
+  }
 }
 
-.covers-item_img {
-  display: block;
-  width: 100%;
-  height: auto;
+.book-covers__img {
+  width: 250px;
 }
 
-.covers-item__btn-about,
-.covers-item__btn-about--active {
-  display: block;
-  width: 100%;
+.book-covers__cell {
   position: absolute;
   top: 0;
-  bottom: 0;
-  text-align: center;
-  opacity: 0;
-  cursor: default;
+  left: 0;
+
+  padding: 10px 0 10px 10px;
+  display: none;
+
+  &--active {
+    @extend .book-covers__cell;
+
+    display: block;
+  }
 }
 
-.covers-item__btn-about:hover,
-.covers-item__btn-about:focus,
-.covers-item__btn-about--active {
-  background-color: $color-base;
-  opacity: 0.6;
-}
+.book-covers__btn-about {
+  padding: 10px 14px;
+  border-radius: 2px;
 
-.covers-item__btn-about span {
-  padding: 15px 20px;
-  font-size: 12px;
-  text-transform: uppercase;
-  border-radius: 4px;
-  cursor: pointer;
   color: $color-common;
-  border: 1px solid $color-common;
-  background-color: transparent;
-}
+  background-color: $color-base;
 
-.covers-item__btn-about span:hover {
-  background-color: $color-common;
-  color: $color-base;
-}
-
-.covers-item__btn-about--active span {
-  padding: 15px 20px;
-  font-size: 12px;
-  text-transform: uppercase;
-  border-radius: 4px;
-  cursor: default;
-  color: $color-hue-0;
-  border: 1px solid $color-hue-0;
-}
-
-/**
- * Search form
- */
-
-.search-form_input {
-  width: 35%;
-  margin: 0 0 35px 0;
-  padding: 9px 12px;
   font-size: 14px;
-  background-color: $color-hue-2;
-  border-radius: 3px;
-  border: 1px solid transparent;
-  color: $color-base-ext;
 
-  &::placeholder {
-    color: $color-hue-1;
+  @include btn-shadow;
+
+  &:focus,
+  &:hover {
+    color: $color-common;
+    background-color: $color-hover-0;
   }
 
-  &:focus {
-    background-color: $color-extra;
+  &--active {
+    @extend .book-covers__btn-about;
+
+    color: $color-base;
+    background-color: $color-detail;
+
+    cursor: default;
+
+    &:focus,
+    &:hover {
+      color: $color-base;
+      background-color: $color-detail;
+    }
   }
 }
