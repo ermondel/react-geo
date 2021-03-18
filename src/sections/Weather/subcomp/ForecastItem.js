@@ -2,7 +2,23 @@ import React from 'react';
 import Sparkline from './Sparkline';
 import weatherData from '../util/weatherData';
 
-const WeatherItem = (props) => {
+const ForecastItemHeader = (props) => (
+  <div className='forecast__header'>
+    <h3 className='forecast__title'>{props.cityName}</h3>
+    <div className='forecast__btns'>
+      {props.btnMap ? (
+        <button className='forecast__btn-map' onClick={props.onCitySelected}>
+          Show on the map
+        </button>
+      ) : null}
+      <button className='forecast__btn-delete' onClick={props.onForecastDelete}>
+        Remove from list
+      </button>
+    </div>
+  </div>
+);
+
+const ForecastItem = (props) => {
   const colors = {
     temp: { line: '#ADD8E6', bar: '#ADD8E6' },
     pres: { line: '#BDB76B', bar: '#BDB76B' },
@@ -20,19 +36,12 @@ const WeatherItem = (props) => {
 
   return (
     <div className='forecast'>
-      <div className='forecast__header'>
-        <h3 className='forecast__title'>{props.forecast.city.name}</h3>
-        <div className='forecast__btns'>
-          {props.btnMap ? (
-            <button className='forecast__btn-map' onClick={props.onCitySelected}>
-              Show on the map
-            </button>
-          ) : null}
-          <button className='forecast__btn-delete' onClick={props.onForecastDelete}>
-            Remove from list
-          </button>
-        </div>
-      </div>
+      <ForecastItemHeader
+        cityName={props.forecast.city.name}
+        onCitySelected={props.onCitySelected}
+        onForecastDelete={props.onForecastDelete}
+        btnMap={props.btnMap}
+      />
       <div className='forecast__body'>
         <Sparkline
           name='temperature'
@@ -74,4 +83,4 @@ const WeatherItem = (props) => {
   );
 };
 
-export default WeatherItem;
+export default ForecastItem;

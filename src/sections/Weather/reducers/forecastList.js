@@ -1,6 +1,6 @@
 import {
   WEATHER_FORECASTS_FETCH_SUCCESS,
-  WEATHER_FORECASTS_DELETE,
+  WEATHER_FORECASTS_REMOVE_ITEM,
 } from '@redux/types';
 
 // existing forecast will be overwritten
@@ -24,7 +24,7 @@ export default (state = [], action) => {
     case WEATHER_FORECASTS_FETCH_SUCCESS:
       return appending(action.payload, state);
 
-    case WEATHER_FORECASTS_DELETE:
+    case WEATHER_FORECASTS_REMOVE_ITEM:
       return state.filter((forecast) => forecast.city.id !== action.id);
 
     default:

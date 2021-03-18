@@ -1,17 +1,19 @@
 import React from 'react';
-import WeatherSearchForm from '../subcomp/WeatherSearchForm';
-import ForecastError from '../subcomp/ForecastError';
-import WeatherList from '../subcomp/WeatherList';
-import CityLocation from '../subcomp/CityLocation';
+import ForecastsSearchForm from '../subcomp/ForecastsSearchForm';
+import ForecastLoadingInfo from '../subcomp/ForecastLoadingInfo';
+import ForecastErrorInfo from '../subcomp/ForecastErrorInfo';
+import ForecastList from '../subcomp/ForecastList';
+import ModalMap from '../subcomp/ModalMap';
 
 const WeatherContent = () => (
   <main className='main'>
     <h2 className='main__title'>Weather</h2>
 
-    <WeatherSearchForm />
-    <ForecastError />
-    <WeatherList />
-    <CityLocation />
+    <ForecastsSearchForm />
+    <ForecastLoadingInfo />
+    <ForecastErrorInfo />
+    <ForecastList />
+    <ModalMap />
   </main>
 );
 

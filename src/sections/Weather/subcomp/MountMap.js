@@ -1,40 +1,51 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { mountMap } from '../actions/weather';
+import { mountMap, resetMap } from '../actions/weather';
 import { ErrorRemote, SpinnerSmall } from '@subcomponents/UtilImages';
+
+const MountMapLoading = () => (
+  <div className='mount-map-spinner'>
+    <SpinnerSmall />
+    <p>loading maps</p>
+  </div>
+);
+
+const MountMapError = () => (
+  <div className='mount-map-error'>
+    <ErrorRemote />
+    <p>the remote server is unavailable</p>
+  </div>
+);
 
 class MountMap extends Component {
   componentDidMount() {
-    if (!this.props.mapStatus.ready) this.props.mountMap();
+    if (this.props.mapStatus === 'none') {
+      this.props.mountMap();
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.props.mapStatus === 'error') {
+      this.props.resetMap();
+    }
   }
 
   render() {
-    if (this.props.mapStatus.loading) {
-      return (
-        <div className='mount-map-spinner'>
-          <SpinnerSmall />
-          <p>loading maps</p>
-        </div>
-      );
-    }
+    switch (this.props.mapStatus) {
+      case 'loading':
+        return <MountMapLoading />;
 
-    if (this.props.mapStatus.error) {
-      return (
-        <div className='mount-map-error'>
-          <ErrorRemote />
-          <p>the remote server is unavailable</p>
-        </div>
-      );
-    }
+      case 'error':
+        return <MountMapError />;
 
-    if (this.props.mapStatus.ready) {
-      return null;
+      case 'none':
+      case 'ready':
+      default:
+        return null;
     }
   }
 }
 
-const mapStateToProps = (state) => ({
-  mapStatus: state.forecastMountMap,
-});
+const mapStateToProps = (state) => ({ mapStatus: state.forecastMountMap });
 
-export default connect(mapStateToProps, { mountMap })(MountMap);
+export default connect(mapStateToProps, { mountMap, resetMap })(MountMap);

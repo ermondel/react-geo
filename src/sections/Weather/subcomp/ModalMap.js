@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 import { ModalWindow, modalClose } from '@modal/ModalWindow';
 
-const CityLocation = ({ visible, city, modalClose }) => {
+const ModalMap = ({ visible, city, modalClose }) => {
   const mapEl = useRef(null);
   const mapElStyle = { width: '600px', height: '600px' };
 
@@ -20,13 +20,9 @@ const CityLocation = ({ visible, city, modalClose }) => {
 
   return (
     <ModalWindow visible={visible} onClose={onClose}>
-      <div className='citylocation' style={mapElStyle} ref={mapEl} />
-      <div className='modal-citylocation__control'>
-        <button
-          className='modal-citylocation__btn-close'
-          onClick={onClose}
-          title='Close window'
-        >
+      <div className='modal-map__content' style={mapElStyle} ref={mapEl} />
+      <div className='modal-map__control'>
+        <button className='modal-map__btn-close' onClick={onClose} title='Close window'>
           Close
         </button>
       </div>
@@ -39,4 +35,4 @@ const mapStateToProps = (state) => ({
   city: state.forecastCity,
 });
 
-export default connect(mapStateToProps, { modalClose })(CityLocation);
+export default connect(mapStateToProps, { modalClose })(ModalMap);

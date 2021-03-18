@@ -1,26 +1,23 @@
-import { WEATHER_MOUNT_MAP_SUCCESS, WEATHER_MOUNT_MAP_FAILURE } from '@redux/types';
+import {
+  WEATHER_MAP_STATUS_NONE,
+  WEATHER_MAP_STATUS_LOADING,
+  WEATHER_MAP_STATUS_READY,
+  WEATHER_MAP_STATUS_ERROR,
+} from '@redux/types';
 
-const defaultState = {
-  loading: true,
-  ready: false,
-  error: false,
-};
-
-export default (state = defaultState, action) => {
+export default (state = 'none', action) => {
   switch (action.type) {
-    case WEATHER_MOUNT_MAP_SUCCESS:
-      return {
-        loading: false,
-        ready: true,
-        error: false,
-      };
+    case WEATHER_MAP_STATUS_NONE:
+      return 'none';
 
-    case WEATHER_MOUNT_MAP_FAILURE:
-      return {
-        loading: false,
-        ready: false,
-        error: true,
-      };
+    case WEATHER_MAP_STATUS_LOADING:
+      return 'loading';
+
+    case WEATHER_MAP_STATUS_READY:
+      return 'ready';
+
+    case WEATHER_MAP_STATUS_ERROR:
+      return 'error';
 
     default:
       return state;

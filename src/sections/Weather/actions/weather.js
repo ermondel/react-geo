@@ -3,13 +3,15 @@ import {
   WEATHER_FORECASTS_FETCH_REQUEST,
   WEATHER_FORECASTS_FETCH_SUCCESS,
   WEATHER_FORECASTS_FETCH_FAILURE,
-  WEATHER_FORECASTS_DELETE,
-  WEATHER_FORECASTS_ERROR_HIDE,
+  WEATHER_FORECASTS_REMOVE_ITEM,
+  WEATHER_FORECASTS_DISABLE_ERROR,
   WEATHER_FORECASTS_VIEW_CHANGED,
   WEATHER_CITY_SELECTED,
-  WEATHER_MOUNT_MAP_SUCCESS,
-  WEATHER_MOUNT_MAP_FAILURE,
   WEATHER_TIME_PERIOD_CHANGED,
+  WEATHER_MAP_STATUS_NONE,
+  WEATHER_MAP_STATUS_LOADING,
+  WEATHER_MAP_STATUS_READY,
+  WEATHER_MAP_STATUS_ERROR,
 } from '@redux/types';
 
 export const forecastsFetch = (city) => async (dispatch) => {
@@ -29,7 +31,7 @@ export const forecastsFetch = (city) => async (dispatch) => {
       query: city,
     });
   } catch (error) {
-    if (error.response.status === 404) {
+    if (error.response && error.response.status === 404) {
       dispatch({
         type: WEATHER_FORECASTS_FETCH_FAILURE,
         status: 404,
@@ -46,12 +48,12 @@ export const forecastsFetch = (city) => async (dispatch) => {
 };
 
 export const forecastsDelete = (id) => ({
-  type: WEATHER_FORECASTS_DELETE,
+  type: WEATHER_FORECASTS_REMOVE_ITEM,
   id,
 });
 
-export const forecastsErrorHide = () => ({
-  type: WEATHER_FORECASTS_ERROR_HIDE,
+export const forecastsDisableError = () => ({
+  type: WEATHER_FORECASTS_DISABLE_ERROR,
 });
 
 export const forecastsViewMode = (view = 'line') => ({
@@ -64,23 +66,32 @@ export const citySelected = (city) => ({
   city,
 });
 
+export const changeTimePeriod = (timePeriod = 'day') => ({
+  type: WEATHER_TIME_PERIOD_CHANGED,
+  timePeriod,
+});
+
 export const mountMap = () => async (dispatch) => {
+  dispatch({ type: WEATHER_MAP_STATUS_LOADING });
+
   const el = document.createElement('script');
 
   try {
     const response = await nodeapiserver.get('/opt/axqf9i');
+
     el.src = `https://maps.googleapis.com/maps/api/js?key=${response.data.opt}`;
     el.async = true;
     el.onload = () => {
-      dispatch({ type: WEATHER_MOUNT_MAP_SUCCESS });
+      dispatch({ type: WEATHER_MAP_STATUS_READY });
     };
+    el.id = 'google-map';
+
     document.body.appendChild(el);
   } catch (error) {
-    dispatch({ type: WEATHER_MOUNT_MAP_FAILURE });
+    dispatch({ type: WEATHER_MAP_STATUS_ERROR });
   }
 };
 
-export const changeTimePeriod = (timePeriod = 'day') => ({
-  type: WEATHER_TIME_PERIOD_CHANGED,
-  timePeriod,
+export const resetMap = () => ({
+  type: WEATHER_MAP_STATUS_NONE,
 });

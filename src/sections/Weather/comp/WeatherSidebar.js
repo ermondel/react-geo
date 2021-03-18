@@ -8,7 +8,7 @@ const WeatherSidebar = () => (
   <div className='sidebar'>
     <ForecastViewMode />
     <TimePeriod />
-    <TechBlock list='React, Redux, Axios, Redux Thunk, React Portals, React Sparklines, OpenWeatherMap API, Google Maps API' />
+    <TechBlock list='React, Redux, Axios, Redux Thunk, React Portals, React Hooks, React Sparklines, OpenWeatherMap API, Google Maps API' />
     <MountMap />
   </div>
 );

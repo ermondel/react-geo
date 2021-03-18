@@ -1,27 +1,17 @@
 import React from 'react';
 import { Sparklines, SparklinesLine, SparklinesBars } from 'react-sparklines';
 
-const Sparkline = ({
-  name,
-  list,
-  view,
-  avg,
-  units,
-  colorBar,
-  colorLine,
-  classEl,
-  classLegend,
-}) => (
-  <div className={classEl}>
-    <Sparklines data={list}>
-      {view === 'bars' ? (
-        <SparklinesBars style={{ fill: colorBar }} />
+const Sparkline = (props) => (
+  <div className={props.classEl}>
+    <Sparklines data={props.list}>
+      {props.view === 'bars' ? (
+        <SparklinesBars style={{ fill: props.colorBar }} />
       ) : (
-        <SparklinesLine color={colorLine} />
+        <SparklinesLine color={props.colorLine} />
       )}
     </Sparklines>
-    <p className={classLegend}>
-      {name}: {avg} {units}
+    <p className={props.classLegend}>
+      {props.name}: {props.avg} {props.units}
     </p>
   </div>
 );

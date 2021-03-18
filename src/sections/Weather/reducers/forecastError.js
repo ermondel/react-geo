@@ -1,7 +1,7 @@
 import {
   WEATHER_FORECASTS_FETCH_FAILURE,
   WEATHER_FORECASTS_FETCH_REQUEST,
-  WEATHER_FORECASTS_ERROR_HIDE,
+  WEATHER_FORECASTS_DISABLE_ERROR,
 } from '@redux/types';
 
 export default (state = null, action) => {
@@ -13,7 +13,7 @@ export default (state = null, action) => {
       };
 
     case WEATHER_FORECASTS_FETCH_REQUEST:
-    case WEATHER_FORECASTS_ERROR_HIDE:
+    case WEATHER_FORECASTS_DISABLE_ERROR:
       return null;
 
     default:

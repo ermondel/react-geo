@@ -1,0 +1,50 @@
+.forecast-info {
+  margin-bottom: 50px;
+}
+
+.forecast-info__header {
+  display: flex;
+
+  margin-bottom: 30px;
+}
+
+.forecast-info__title {
+  margin: 0;
+  padding: 0;
+
+  font-weight: normal;
+  font-size: 24px;
+  color: $color-common;
+}
+
+.forecast-info__btns {
+  margin-left: auto;
+}
+
+.forecast-info__btn-close {
+  padding: 5px 10px;
+
+  color: $color-base;
+  background-color: transparent;
+
+  font-size: 14px;
+  border-radius: 4px;
+
+  &:hover,
+  &:focus {
+    color: $color-common;
+    background-color: $color-base;
+  }
+}
+
+.forecast-info__body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-hue-3;
+  min-height: 60px;
+}
+
+.forecast-info__spinner img {
+  width: 50px;
+}
