@@ -8,10 +8,6 @@ import {
   WEATHER_FORECASTS_VIEW_CHANGED,
   WEATHER_CITY_SELECTED,
   WEATHER_TIME_PERIOD_CHANGED,
-  WEATHER_MAP_STATUS_NONE,
-  WEATHER_MAP_STATUS_LOADING,
-  WEATHER_MAP_STATUS_READY,
-  WEATHER_MAP_STATUS_ERROR,
 } from '@redux/types';
 
 export const forecastsFetch = (city) => async (dispatch) => {
@@ -69,29 +65,4 @@ export const citySelected = (city) => ({
 export const changeTimePeriod = (timePeriod = 'day') => ({
   type: WEATHER_TIME_PERIOD_CHANGED,
   timePeriod,
-});
-
-export const mountMap = () => async (dispatch) => {
-  dispatch({ type: WEATHER_MAP_STATUS_LOADING });
-
-  const el = document.createElement('script');
-
-  try {
-    const response = await nodeapiserver.get('/opt/axqf9i');
-
-    el.src = `https://maps.googleapis.com/maps/api/js?key=${response.data.opt}`;
-    el.async = true;
-    el.onload = () => {
-      dispatch({ type: WEATHER_MAP_STATUS_READY });
-    };
-    el.id = 'google-map';
-
-    document.body.appendChild(el);
-  } catch (error) {
-    dispatch({ type: WEATHER_MAP_STATUS_ERROR });
-  }
-};
-
-export const resetMap = () => ({
-  type: WEATHER_MAP_STATUS_NONE,
 });

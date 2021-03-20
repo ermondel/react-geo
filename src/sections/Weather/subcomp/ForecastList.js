@@ -9,7 +9,7 @@ const ForecastList = (props) => (
       <ForecastItem
         forecast={forecast}
         view={props.view}
-        btnMap={props.mapStatus === 'ready'}
+        btnMap={window.google && window.google.maps}
         key={forecast.city.id}
         timePeriod={props.timePeriod}
         onForecastDelete={() => props.forecastsDelete(forecast.city.id)}
@@ -22,11 +22,7 @@ const ForecastList = (props) => (
 const mapStateToProps = (state) => ({
   list: state.forecastList,
   view: state.forecastView,
-  mapStatus: state.forecastMountMap,
   timePeriod: state.forecastTimePeriod,
 });
 
-export default connect(mapStateToProps, {
-  forecastsDelete,
-  citySelected,
-})(ForecastList);
+export default connect(mapStateToProps, { forecastsDelete, citySelected })(ForecastList);

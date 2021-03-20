@@ -3,6 +3,7 @@ import { reducer as formReducer } from 'redux-form';
 
 export default combineReducers({
   modalWindow: require('@modal/modalWindowReducer').default,
+  mountGooglemap: require('@googlemap/MountMapReducer').default,
   podcast: require('@sections/Podcasts/reducers/podcast').default,
   blogPosts: require('@sections/Blog/reducers/blogPosts').default,
   blogUser: require('@sections/Blog/reducers/blogUser').default,
@@ -16,7 +17,6 @@ export default combineReducers({
   forecastError: require('@sections/Weather/reducers/forecastError').default,
   forecastView: require('@sections/Weather/reducers/forecastView').default,
   forecastCity: require('@sections/Weather/reducers/forecastCity').default,
-  forecastMountMap: require('@sections/Weather/reducers/forecastMountMap').default,
   forecastTimePeriod: require('@sections/Weather/reducers/forecastTimePeriod').default,
   postsList: require('@sections/Posts/reducers/postsList').default,
   postsView: require('@sections/Posts/reducers/postsView').default,

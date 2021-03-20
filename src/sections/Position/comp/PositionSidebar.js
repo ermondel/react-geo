@@ -1,6 +1,7 @@
 import React from 'react';
 import TechBlock from '@sidebar/TechBlock';
 import InfoBlock from '@sidebar/InfoBlock';
+import MountMap from '@googlemap/MountMap';
 
 const PositionSidebar = ({ geo }) => (
   <div className='sidebar'>
@@ -14,7 +15,7 @@ const PositionSidebar = ({ geo }) => (
         }}
       />
     )}
-
+    <MountMap />
     <TechBlock list='React, React Hooks, Geolocation API' />
   </div>
 );

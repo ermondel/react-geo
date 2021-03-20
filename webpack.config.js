@@ -48,6 +48,7 @@ const aliases = {
   '@sections': path.resolve(__dirname, 'src/sections'),
   '@sidebar': path.resolve(__dirname, 'src/sidebar'),
   '@subcomponents': path.resolve(__dirname, 'src/subcomponents'),
+  '@googlemap': path.resolve(__dirname, 'src/googlemap'),
 };
 
 /**
