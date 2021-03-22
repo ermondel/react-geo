@@ -1,0 +1,44 @@
+.smartphone {
+  color: $color-extra;
+  font-size: 14px;
+}
+
+.smartphone__body {
+  width: 250px;
+  height: 420px;
+  border: 1px solid $color-hue-2;
+  border-radius: 10px;
+}
+
+.smartphone__brand {
+  width: 90%;
+  margin: 7px auto;
+  text-align: center;
+}
+
+.smartphone__screen {
+  width: 85%;
+  height: 340px;
+  margin: 0 auto;
+  border: 1px solid $color-hue-2;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.smartphone__os {
+  margin: auto;
+}
+
+.smartphone__resolution {
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.smartphone__button {
+  width: 20px;
+  height: 20px;
+  border: 1px solid $color-hue-2;
+  border-radius: 50%;
+  margin: 10px auto;
+}

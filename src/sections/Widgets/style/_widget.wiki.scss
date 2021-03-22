@@ -1,0 +1,92 @@
+// search form
+
+.wiki-search {
+  margin-bottom: 25px;
+}
+
+.wiki-search__input {
+  box-sizing: border-box;
+  padding: 9px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: $color-base-ext;
+  background-color: $color-hue-2;
+  font-size: 14px;
+  line-height: 16px;
+  width: 100%;
+
+  &::placeholder {
+    color: $color-hue-1;
+  }
+
+  &:focus {
+    background-color: $color-extra;
+  }
+}
+
+// articles
+
+.wiki-article {
+  background-color: $color-base-ext;
+  border-bottom: 1px solid $color-minor-ext;
+  padding: 2%;
+  font-size: 15px;
+
+  &:hover {
+    background-color: lighten($color-base-ext, 3%);
+  }
+}
+
+.wiki-article__title {
+  margin: 0 0 10px 0;
+  padding: 0;
+  font-weight: normal;
+
+  &::before {
+    content: 'W';
+    margin-right: 7px;
+    background-color: black;
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: $color-minor;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13px;
+    position: relative;
+    top: -2px;
+  }
+}
+
+.wiki-article__link {
+  text-decoration: none;
+  color: $color-common;
+
+  &:hover,
+  &:focus {
+    color: $color-hover-0;
+    text-decoration: underline;
+  }
+}
+
+.wiki-article__content {
+  margin: 0;
+  padding: 0;
+  color: $color-minor-ext;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.wiki-error {
+  text-align: center;
+  color: $color-base;
+  text-transform: uppercase;
+  font-size: 90%;
+}
+
+.wiki-spinner {
+  text-align: center;
+  color: $color-util;
+  text-transform: uppercase;
+  font-size: 90%;
+}

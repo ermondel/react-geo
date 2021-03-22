@@ -1,0 +1,38 @@
+.podcast-infoblock__btns {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  margin-top: 25px;
+}
+
+.podcast-infoblock__btn-main {
+  margin-right: 5px;
+  padding: 10px 20px;
+  border-radius: 4px;
+
+  background-color: $color-aux;
+  color: $color-detail;
+
+  &:hover,
+  &:focus {
+    background-color: $color-hover-0;
+    color: $color-extra;
+  }
+}
+
+.podcast-infoblock__btn-link {
+  display: block;
+  padding: 10px 0px;
+
+  text-decoration: none;
+  color: $color-minor;
+
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    color: $color-hover-0;
+  }
+}

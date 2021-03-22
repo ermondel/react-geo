@@ -1,0 +1,16 @@
+.board-users {
+  margin: 20px;
+}
+
+.user-list__title {
+  margin: 0 0 20px 0;
+  padding: 0 0 10px 0;
+  font-weight: normal;
+  color: $color-base;
+  border-bottom: 1px solid $color-base;
+}
+
+.user-list__item {
+  color: $color-minor-ext;
+  margin-bottom: 4px;
+}

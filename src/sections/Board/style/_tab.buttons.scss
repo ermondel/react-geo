@@ -1,0 +1,39 @@
+.board__tabs {
+  border-bottom: 1px solid $color-hue-2;
+  padding: 0 15px;
+  margin-bottom: 35px;
+}
+
+.board__btn-tab,
+.board__btn-tab--active {
+  padding: 15px 20px;
+  background-color: transparent;
+  color: $color-common;
+  font-size: 14px;
+
+  &:first-child {
+    border-top-left-radius: 8px;
+  }
+
+  &:last-child {
+    border-top-right-radius: 8px;
+  }
+}
+
+.board__btn-tab--active {
+  border-top: 1px solid $color-hue-2;
+  border-right: 1px solid $color-hue-2;
+  border-left: 1px solid $color-hue-2;
+  background-color: $color-hue-0;
+  position: relative;
+  bottom: -1px;
+  color: $color-hue-3;
+  cursor: default;
+}
+
+.board__btn-tab {
+  &:hover,
+  &:focus {
+    background-color: $color-hover-0;
+  }
+}
