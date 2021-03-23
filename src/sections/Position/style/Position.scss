@@ -1,23 +1,54 @@
-.accept-card {
+.geolocation-map {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: 2;
+
+  visibility: hidden;
+
+  &--visible {
+    visibility: visible;
+  }
+}
+
+.geolocation-message {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
 
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-.accept-card__inner {
   text-align: center;
 }
 
-.accept-card_error {
+.geolocation-message__error {
   color: $color-error;
 }
 
-.accept-card_picture {
+.geolocation-message__picture {
   display: block;
+}
+
+.geolocation-message__btn-open-map {
+  padding: 16px;
+
+  color: $color-extra;
+  background-color: $color-base;
+
+  font-size: 14px;
+  line-height: 16px;
+
+  border-radius: 4px;
+
+  &:hover,
+  &:focus {
+    background-color: $color-hover-0;
+  }
 }
