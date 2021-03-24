@@ -2,21 +2,21 @@ import React from 'react';
 import Fragment from '@subcomponents/Fragment';
 import MainNavigation from '@subcomponents/MainNavigation';
 import Footer from '@subcomponents/Footer';
-import PositionSidebar from './PositionSidebar';
-import PositionContent from './PositionContent';
+import LocationSidebar from './LocationSidebar';
+import LocationContent from './LocationContent';
 
-const Position = () => (
-  <Fragment documentTitle='Position'>
+const Location = () => (
+  <Fragment documentTitle='Location'>
     <div className='side-container'>
       <MainNavigation />
-      <PositionSidebar />
+      <LocationSidebar />
     </div>
 
     <div className='content-container'>
-      <PositionContent />
+      <LocationContent />
       <Footer />
     </div>
   </Fragment>
 );
 
-export default Position;
+export default Location;

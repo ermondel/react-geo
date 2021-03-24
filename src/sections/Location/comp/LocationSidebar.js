@@ -3,7 +3,7 @@ import TechBlock from '@sidebar/TechBlock';
 import MountMap from '@googlemap/MountMap';
 import CoordinateBlock from '../subcomp/CoordinateBlock';
 
-const PositionSidebar = () => (
+const LocationSidebar = () => (
   <div className='sidebar'>
     <CoordinateBlock />
     <MountMap />
@@ -11,4 +11,4 @@ const PositionSidebar = () => (
   </div>
 );
 
-export default PositionSidebar;
+export default LocationSidebar;

@@ -16,33 +16,33 @@ const HomeContent = () => (
         <article className='info-article'>
           <h4 className='info-article__title'>Blog</h4>
           <p className='info-article__body'>
-            Display a list of blog posts from the external JSONPlaceholder API with
-            the ability to view information about each post author.
+            Display a list of blog posts from the external JSONPlaceholder API with the
+            ability to view information about each post author.
           </p>
         </article>
 
         <article className='info-article'>
           <h4 className='info-article__title'>Postcard</h4>
           <p className='info-article__body'>
-            Postcard maker with the ability to choose a greeting in different
-            languages ​​and the background color of the greeting.
+            Postcard maker with the ability to choose a greeting in different languages
+            ​​and the background color of the greeting.
           </p>
         </article>
 
         <article className='info-article'>
           <h4 className='info-article__title'>Podcasts</h4>
           <p className='info-article__body'>
-            Display a list of podcasts with the ability to view information about
-            each of them.
+            Display a list of podcasts with the ability to view information about each of
+            them.
           </p>
         </article>
 
         <article className='info-article'>
           <h4 className='info-article__title'>Books</h4>
           <p className='info-article__body'>
-            Display a list of books with the ability to view information about each
-            of them. You can search for a book by title, author or year. The list of
-            books has an alternative view mode - the gallery of covers.
+            Display a list of books with the ability to view information about each of
+            them. You can search for a book by title, author or year. The list of books
+            has an alternative view mode - the gallery of covers.
           </p>
         </article>
 
@@ -55,9 +55,9 @@ const HomeContent = () => (
         </article>
 
         <article className='info-article'>
-          <h4 className='info-article__title'>Position</h4>
+          <h4 className='info-article__title'>Location</h4>
           <p className='info-article__body'>
-            Geolocation. Locate and display a user's position.
+            Geolocation. Locate and display a user's location.
           </p>
         </article>
 
@@ -66,24 +66,24 @@ const HomeContent = () => (
           <p className='info-article__body'>
             5-day weather charts for the city - charts of temperature, pressure and
             humidity plus average values. You can choose the time of day and type of
-            chart. The search results are displayed as a table. You can remove the
-            city or view it on the map.
+            chart. The search results are displayed as a table. You can remove the city or
+            view it on the map.
           </p>
         </article>
 
         <article className='info-article'>
           <h4 className='info-article__title'>Posts</h4>
           <p className='info-article__body'>
-            Manage the list of posts. Add, read and delete posts. Restful backend
-            service - Redux Blog Post API.
+            Manage the list of posts. Add, read and delete posts. Restful backend service
+            - Redux Blog Post API.
           </p>
         </article>
 
         <article className='info-article'>
           <h4 className='info-article__title'>Widgets</h4>
           <p className='info-article__body'>
-            Four widgets: accordion, wikipedia search, dropdown menu (with search),
-            word translation into other languages.
+            Four widgets: accordion, wikipedia search, dropdown menu (with search), word
+            translation into other languages.
           </p>
         </article>
       </div>

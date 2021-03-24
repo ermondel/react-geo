@@ -6,7 +6,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import stores from '@redux/stores';
 import Home from '@sections/Home/comp/Home';
-import Position from '@sections/Position/comp/Position';
+import Location from '@sections/Location/comp/Location';
 import Blog from '@sections/Blog/comp/Blog';
 import Postcard from '@sections/Postcard/comp/Postcard';
 import Podcasts from '@sections/Podcasts/comp/Podcasts';
@@ -27,7 +27,7 @@ ReactDOM.render(
       <HashRouter>
         <Switch>
           <Route path='/' exact component={Home} />
-          <Route path='/position' exact component={Position} />
+          <Route path='/location' exact component={Location} />
           <Route path='/blog' exact component={Blog} />
           <Route path='/postcard' exact component={Postcard} />
           <Route path='/podcasts' exact component={Podcasts} />

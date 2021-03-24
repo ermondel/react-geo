@@ -27,7 +27,7 @@ export default combineReducers({
   postsMessage: require('@sections/Posts/reducers/postsMessage').default,
   postsSearch: require('@sections/Posts/reducers/postsSearch').default,
   postsSort: require('@sections/Posts/reducers/postsSort').default,
-  geoCoordinates: require('@sections/Position/redux/geoCoordinatesReducer').default,
-  geoMap: require('@sections/Position/redux/geoMapReducer').default,
+  geoCoordinates: require('@sections/Location/redux/geoCoordinatesReducer').default,
+  geoMap: require('@sections/Location/redux/geoMapReducer').default,
   form: formReducer,
 });

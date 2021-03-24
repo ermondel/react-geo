@@ -28,8 +28,8 @@ const MainNavigation = () => (
         Board
       </NavItem>
 
-      <NavItem to='/position' block='main-nav' visible={!!window.chrome}>
-        Position
+      <NavItem to='/location' block='main-nav' visible={!!window.chrome}>
+        Location
       </NavItem>
 
       <NavItem to='/weather' block='main-nav'>
