@@ -1,12 +1,12 @@
 import React from 'react';
-import Fragment from '@subcomponents/Fragment';
+import InnerSection from '@subcomponents/InnerSection';
 import MainNavigation from '@subcomponents/MainNavigation';
 import Footer from '@subcomponents/Footer';
 import NotFoundSidebar from './NotFoundSidebar';
 import NotFoundContent from './NotFoundContent';
 
 const NotFound = () => (
-  <Fragment documentTitle='404'>
+  <InnerSection browserTabTitle='404'>
     <div className='side-container'>
       <MainNavigation />
       <NotFoundSidebar />
@@ -16,7 +16,7 @@ const NotFound = () => (
       <NotFoundContent />
       <Footer />
     </div>
-  </Fragment>
+  </InnerSection>
 );
 
 export default NotFound;

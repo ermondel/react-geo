@@ -1,12 +1,12 @@
 import React from 'react';
-import Fragment from '@subcomponents/Fragment';
+import InnerSection from '@subcomponents/InnerSection';
 import MainNavigation from '@subcomponents/MainNavigation';
 import Footer from '@subcomponents/Footer';
 import BooksSidebar from './BooksSidebar';
 import BooksContent from './BooksContent';
 
 const Books = () => (
-  <Fragment documentTitle='Books'>
+  <InnerSection browserTabTitle='Books'>
     <div className='side-container'>
       <MainNavigation />
       <BooksSidebar />
@@ -16,7 +16,7 @@ const Books = () => (
       <BooksContent />
       <Footer />
     </div>
-  </Fragment>
+  </InnerSection>
 );
 
 export default Books;

@@ -1,12 +1,12 @@
 import React from 'react';
-import Fragment from '@subcomponents/Fragment';
+import InnerSection from '@subcomponents/InnerSection';
 import MainNavigation from '@subcomponents/MainNavigation';
 import Footer from '@subcomponents/Footer';
 import PostsSidebar from './PostsSidebar';
 import PostsContent from './PostsContent';
 
 const Posts = () => (
-  <Fragment documentTitle='Posts'>
+  <InnerSection browserTabTitle='Posts'>
     <div className='side-container'>
       <MainNavigation />
       <PostsSidebar />
@@ -16,7 +16,7 @@ const Posts = () => (
       <PostsContent />
       <Footer />
     </div>
-  </Fragment>
+  </InnerSection>
 );
 
 export default Posts;

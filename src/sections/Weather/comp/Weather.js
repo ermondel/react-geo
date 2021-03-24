@@ -1,12 +1,12 @@
 import React from 'react';
-import Fragment from '@subcomponents/Fragment';
+import InnerSection from '@subcomponents/InnerSection';
 import MainNavigation from '@subcomponents/MainNavigation';
 import Footer from '@subcomponents/Footer';
 import WeatherSidebar from './WeatherSidebar';
 import WeatherContent from './WeatherContent';
 
 const Weather = () => (
-  <Fragment documentTitle='Weather'>
+  <InnerSection browserTabTitle='Weather'>
     <div className='side-container'>
       <MainNavigation />
       <WeatherSidebar />
@@ -16,7 +16,7 @@ const Weather = () => (
       <WeatherContent />
       <Footer />
     </div>
-  </Fragment>
+  </InnerSection>
 );
 
 export default Weather;

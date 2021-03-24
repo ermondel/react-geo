@@ -1,12 +1,12 @@
 import React from 'react';
-import Fragment from '@subcomponents/Fragment';
+import InnerSection from '@subcomponents/InnerSection';
 import MainNavigation from '@subcomponents/MainNavigation';
 import Footer from '@subcomponents/Footer';
 import PodcastsSidebar from './PodcastsSidebar';
 import PodcastsContent from './PodcastsContent';
 
 const Podcasts = () => (
-  <Fragment documentTitle='Podcasts'>
+  <InnerSection browserTabTitle='Podcasts'>
     <div className='side-container'>
       <MainNavigation />
       <PodcastsSidebar />
@@ -16,7 +16,7 @@ const Podcasts = () => (
       <PodcastsContent />
       <Footer />
     </div>
-  </Fragment>
+  </InnerSection>
 );
 
 export default Podcasts;

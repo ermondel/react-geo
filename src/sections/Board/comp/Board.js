@@ -1,12 +1,12 @@
 import React from 'react';
-import Fragment from '@subcomponents/Fragment';
+import InnerSection from '@subcomponents/InnerSection';
 import MainNavigation from '@subcomponents/MainNavigation';
 import Footer from '@subcomponents/Footer';
 import BoardSidebar from './BoardSidebar';
 import BoardContent from './BoardContent';
 
 const Board = () => (
-  <Fragment documentTitle='Board'>
+  <InnerSection browserTabTitle='Board'>
     <div className='side-container'>
       <MainNavigation />
       <BoardSidebar />
@@ -16,7 +16,7 @@ const Board = () => (
       <BoardContent />
       <Footer />
     </div>
-  </Fragment>
+  </InnerSection>
 );
 
 export default Board;

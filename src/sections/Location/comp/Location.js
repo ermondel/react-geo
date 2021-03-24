@@ -1,12 +1,12 @@
 import React from 'react';
-import Fragment from '@subcomponents/Fragment';
+import InnerSection from '@subcomponents/InnerSection';
 import MainNavigation from '@subcomponents/MainNavigation';
 import Footer from '@subcomponents/Footer';
 import LocationSidebar from './LocationSidebar';
 import LocationContent from './LocationContent';
 
 const Location = () => (
-  <Fragment documentTitle='Location'>
+  <InnerSection browserTabTitle='Location'>
     <div className='side-container'>
       <MainNavigation />
       <LocationSidebar />
@@ -16,7 +16,7 @@ const Location = () => (
       <LocationContent />
       <Footer />
     </div>
-  </Fragment>
+  </InnerSection>
 );
 
 export default Location;
