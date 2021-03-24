@@ -33,13 +33,25 @@ const InfoBlockControl = ({ show = false, onClick }) => {
   );
 };
 
-const InfoBlock = ({ title, data, buttons = null, showControlBtns = false, onClose }) => {
+// default
+
+const InfoBlock = (props) => {
+  const { title, data, buttons = null, showControlBtns = false, titleModifier } = props;
+
+  let titleClassName = 'infoblock__title';
+
+  if (titleModifier) {
+    titleClassName += ` ${titleClassName}--${titleModifier}`;
+  }
+
   return (
     <div className='infoblock'>
-      <h3 className='infoblock__title'>{title}</h3>
+      <h3 className={titleClassName}>
+        <span className='infoblock__title__text'>{title}</span>
+      </h3>
       <InfoBlockItemList data={data} />
       {buttons}
-      <InfoBlockControl show={showControlBtns} onClick={onClose} />
+      <InfoBlockControl show={showControlBtns} onClick={props.onClose} />
     </div>
   );
 };

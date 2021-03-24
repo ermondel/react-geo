@@ -48,3 +48,9 @@
     background-color: $color-hover-0;
   }
 }
+
+// modifiers
+
+.infoblock__title--compass-image {
+  background: url('@sections/Location/assets/compass_x60.png') right center no-repeat;
+}
