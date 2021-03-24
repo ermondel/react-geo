@@ -1,11 +1,7 @@
 .sourcesblock {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  @include absolute(auto, 0, 0, 0);
 
   margin: 20px;
-
   color: $color-minor-ext;
 
   font-size: 12px;

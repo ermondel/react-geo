@@ -56,18 +56,17 @@
 }
 
 .dropdown-menu__container {
-  position: absolute;
-  z-index: 1;
-  top: 0px;
-  left: 0px;
+  @include absolute(0, auto, auto, 0, 1);
+
   box-sizing: border-box;
+
   width: 100%;
   padding: 5px;
+
   border-radius: 4px;
   background-color: $color-base-ext;
-  -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+
+  @include shadow-1;
 }
 
 .dropdown-menu__search {

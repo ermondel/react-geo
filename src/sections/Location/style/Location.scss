@@ -1,10 +1,5 @@
 .geolocation-map {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 2;
+  @include absolute(0, 0, 0, 0, 2);
 
   visibility: hidden;
 
@@ -14,12 +9,7 @@
 }
 
 .geolocation-message {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
+  @include absolute(0, 0, 0, 0, 1);
 
   display: flex;
   justify-content: center;

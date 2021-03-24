@@ -31,12 +31,12 @@
   &::before {
     content: ' ';
     display: block;
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    top: 3px;
+
+    @include absolute(3px, auto, auto, 0, 1);
+
     width: 0;
     height: 0;
+
     border-top: 6px solid transparent;
     border-left: 10px solid $color-hue-2;
     border-bottom: 6px solid transparent;
@@ -47,11 +47,12 @@
   background-color: $color-hue-2;
 
   & .widgets-accordion__title::before {
+    top: 5px;
+    left: -2px;
+
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
     border-top: 10px solid $color-hue-0;
-    top: 5px;
-    left: -2px;
   }
 }
 
@@ -60,8 +61,10 @@
 
   &--active {
     display: block;
+
     margin: 0;
     padding: 16px 16px 16px 37px;
+
     color: $color-hue-3;
   }
 }
