@@ -94,15 +94,9 @@ const fonts = {
 };
 
 const js = () => {
-  const use = [
-    {
-      loader: 'babel-loader',
-      options: {
-        presets: ['@babel/preset-env', '@babel/preset-react'],
-        plugins: ['@babel/plugin-proposal-class-properties'],
-      },
-    },
-  ];
+  const use = [];
+
+  use.push('babel-loader');
 
   if (isDev) use.push('eslint-loader');
 
