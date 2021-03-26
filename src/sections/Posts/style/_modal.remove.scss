@@ -1,5 +1,7 @@
 .modal-remove-post {
   width: 400px;
+
+  background-color: $color-hue-0;
 }
 
 .modal-remove-post__text {
@@ -7,7 +9,7 @@
   padding: 10px;
 
   color: $color-common;
-  background-color: $color-hue-1;
+  background-color: $color-base-ext;
   border-radius: 2px;
 
   &--removing {
@@ -48,15 +50,15 @@
   border: 0;
   border-radius: 2px;
 
-  color: $color-base;
-  background-color: $color-common;
+  color: $color-common;
+  background-color: $color-base;
 
   font-size: 13px;
 
   &:hover,
   &:focus {
-    color: $color-common;
-    background-color: $color-base;
+    color: $color-base;
+    background-color: $color-common;
   }
 }
 
@@ -67,15 +69,15 @@
   border: 0;
   border-radius: 2px;
 
-  color: $color-base;
-  background-color: $color-common;
+  color: $color-common;
+  background-color: $color-base;
 
   font-size: 13px;
 
   &:hover,
   &:focus {
-    color: $color-common;
-    background-color: $color-base;
+    color: $color-base;
+    background-color: $color-common;
   }
 }
 
@@ -106,4 +108,5 @@
   padding: 10px;
 
   color: $color-base-ext;
+  text-align: center;
 }
