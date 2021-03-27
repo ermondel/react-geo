@@ -152,30 +152,21 @@ const ModalRemovePost = (props) => {
   }
 
   return (
-    <ModalWindow visible={props.visible && __content} onClose={closeModal}>
+    <ModalWindow
+      visible={props.visible && __content}
+      onClose={closeModal}
+      modifier='remove-post'
+    >
       {__content}
     </ModalWindow>
   );
 };
 
-const mapStateToProps = (state) => {
-  // return {
-  //   visible: true,
-  //   removing: {
-  //     status: 'default',
-  //     post: {
-  //       title: 'Lorem ipsum up dolore',
-  //     },
-  //   },
-  //   authData: { publicKey: '1234' },
-  // };
-
-  return {
-    visible: state.modalWindow,
-    removing: state.postsRemoving,
-    authData: state.postsAuth,
-  };
-};
+const mapStateToProps = (state) => ({
+  visible: state.modalWindow,
+  removing: state.postsRemoving,
+  authData: state.postsAuth,
+});
 
 export default connect(mapStateToProps, {
   modalClose,

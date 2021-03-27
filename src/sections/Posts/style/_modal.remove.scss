@@ -110,3 +110,14 @@
   color: $color-base-ext;
   text-align: center;
 }
+
+// modal modifiers
+
+.modal__background--remove-post {
+  opacity: 0.1;
+}
+
+.modal__content--remove-post {
+  background-color: $color-hue-0;
+  @include shadow-1;
+}
