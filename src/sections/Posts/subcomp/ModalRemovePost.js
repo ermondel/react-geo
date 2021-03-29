@@ -4,24 +4,24 @@ import { removePost, resetRemoveStatus } from '../actions/posts';
 import { ModalWindow, modalClose } from '@modal/ModalWindow';
 import { ErrorRemote, SpinnerBig } from '@subcomponents/UtilImages';
 
-const ModalRemovePostConfirm = ({ title, onRemove, onCancel }) => (
+const RemovePostConfirm = ({ postName, onRemove, onClose }) => (
   <div className='modal-remove-post'>
-    <p className='modal-remove-post__text'>Are you sure you want to remove the post?</p>
-    <p className='modal-remove-post__postname'>{title}</p>
+    <p className='modal-remove-post__title'>Are you sure you want to remove the post?</p>
+    <p className='modal-remove-post__postname'>{postName}</p>
     <div className='modal-remove-post__control'>
       <button className='modal-remove-post__btn-remove' onClick={onRemove}>
         Remove
       </button>
-      <button className='modal-remove-post__btn-cancel' onClick={onCancel}>
+      <button className='modal-remove-post__btn-cancel' onClick={onClose}>
         Cancel
       </button>
     </div>
   </div>
 );
 
-const ModalRemovePostSpinner = () => (
+const RemovePostSpinner = () => (
   <div className='modal-remove-post'>
-    <p className='modal-remove-post__text modal-remove-post__text--removing'>
+    <p className='modal-remove-post__title modal-remove-post__title--removing'>
       Removing ...
     </p>
     <div className='modal-remove-post__spinner'>
@@ -35,12 +35,12 @@ const ModalRemovePostSpinner = () => (
   </div>
 );
 
-const ModalRemovePostSuccess = ({ title, onClose }) => (
+const RemovePostSuccess = ({ postName, onClose }) => (
   <div className='modal-remove-post'>
-    <p className='modal-remove-post__text modal-remove-post__text--success'>
+    <p className='modal-remove-post__title modal-remove-post__title--success'>
       Post successfully deleted
     </p>
-    <p className='modal-remove-post__postname'>{title}</p>
+    <p className='modal-remove-post__postname'>{postName}</p>
     <div className='modal-remove-post__control'>
       <button
         className='modal-remove-post__btn-close'
@@ -53,9 +53,9 @@ const ModalRemovePostSuccess = ({ title, onClose }) => (
   </div>
 );
 
-const ModalRemovePostError = ({ onClose }) => (
+const RemovePostError = ({ onClose }) => (
   <div className='modal-remove-post'>
-    <p className='modal-remove-post__text modal-remove-post__text--error'>
+    <p className='modal-remove-post__title modal-remove-post__title--error'>
       Error deleting post
     </p>
     <div className='modal-remove-post__error-img'>
@@ -77,9 +77,9 @@ const ModalRemovePostError = ({ onClose }) => (
   </div>
 );
 
-const ModalRemovePostAccessDenied = ({ onClose }) => (
+const RemovePostAccessDenied = ({ onClose }) => (
   <div className='modal-remove-post'>
-    <p className='modal-remove-post__text modal-remove-post__text--error'>
+    <p className='modal-remove-post__title modal-remove-post__title--error'>
       Access denied
     </p>
     <div className='modal-remove-post__error-img'>
@@ -106,60 +106,62 @@ const ModalRemovePost = (props) => {
     props.resetRemoveStatus();
   };
 
-  let __status;
-  let __content;
+  const removePost = () => {
+    props.removePost(props.authData.publicKey, props.removing.post);
+  };
+
+  let $status;
 
   if (!props.authData || !props.authData.publicKey) {
-    __status = 'denied';
+    $status = 'denied';
   } else {
-    __status = props.removing.status;
+    $status = props.removing.status;
   }
 
-  switch (__status) {
+  switch ($status) {
     case 'confirm':
-      __content = (
-        <ModalRemovePostConfirm
-          title={props.removing.post.title}
-          onRemove={() => props.removePost(props.authData.publicKey, props.removing.post)}
-          onCancel={closeModal}
-        />
+      return (
+        <ModalWindow visible={props.visible} onClose={closeModal} modifier='remove-post'>
+          <RemovePostConfirm
+            postName={props.removing.post.title}
+            onRemove={removePost}
+            onClose={closeModal}
+          />
+        </ModalWindow>
       );
-      break;
 
     case 'removing':
-      __content = <ModalRemovePostSpinner />;
-      break;
+      return (
+        <ModalWindow visible={props.visible} onClose={closeModal} modifier='remove-post'>
+          <RemovePostSpinner />
+        </ModalWindow>
+      );
 
     case 'success':
-      __content = (
-        <ModalRemovePostSuccess title={props.removing.post.title} onClose={closeModal} />
+      return (
+        <ModalWindow visible={props.visible} onClose={closeModal} modifier='remove-post'>
+          <RemovePostSuccess postName={props.removing.post.title} onClose={closeModal} />
+        </ModalWindow>
       );
-      break;
 
     case 'failure':
-      __content = (
-        <ModalRemovePostError title={props.removing.post.title} onClose={closeModal} />
+      return (
+        <ModalWindow visible={props.visible} onClose={closeModal} modifier='remove-post'>
+          <RemovePostError title={props.removing.post.title} onClose={closeModal} />
+        </ModalWindow>
       );
-      break;
 
     case 'denied':
-      __content = <ModalRemovePostAccessDenied onClose={closeModal} />;
-      break;
+      return (
+        <ModalWindow visible={props.visible} onClose={closeModal} modifier='remove-post'>
+          <RemovePostAccessDenied onClose={closeModal} />
+        </ModalWindow>
+      );
 
     case 'default':
     default:
-      __content = null;
+      return null;
   }
-
-  return (
-    <ModalWindow
-      visible={props.visible && __content}
-      onClose={closeModal}
-      modifier='remove-post'
-    >
-      {__content}
-    </ModalWindow>
-  );
 };
 
 const mapStateToProps = (state) => ({
