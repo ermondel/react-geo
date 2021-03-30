@@ -1,9 +1,25 @@
-import { GEOLOCATION_OPEN_MAP } from './types';
+import { GEOLOCATION_OPEN_MAP, GEOLOCATION_CLOSE_MAP } from './types';
 
-export default (state = null, action) => {
-  if (action.type === GEOLOCATION_OPEN_MAP) {
-    return action.coordinates;
+const defaultState = {
+  coordinates: null,
+  visible: false,
+};
+
+export default (state = defaultState, action) => {
+  switch (action.type) {
+    case GEOLOCATION_OPEN_MAP:
+      return {
+        coordinates: action.coordinates,
+        visible: true,
+      };
+
+    case GEOLOCATION_CLOSE_MAP:
+      return {
+        coordinates: state.coordinates,
+        visible: false,
+      };
+
+    default:
+      return state;
   }
-
-  return state;
 };

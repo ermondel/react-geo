@@ -1,34 +1,31 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 
-const GeoMap = (props) => {
+const GeoMap = ({ geoMap }) => {
   const mapEl = useRef(null);
 
-  let showMap = false;
   let className = 'geolocation-map';
 
   if (
-    props.geoMap &&
-    props.geoMap.latitude &&
-    props.geoMap.longitude &&
+    geoMap.visible &&
+    geoMap.coordinates &&
+    geoMap.coordinates.latitude &&
+    geoMap.coordinates.longitude &&
     window.google &&
     window.google.maps
   ) {
-    showMap = true;
-    className += ` ${className}--visible`;
-  }
-
-  useEffect(() => {
-    if (showMap) {
+    if (!mapEl.current.hasChildNodes()) {
       new window.google.maps.Map(mapEl.current, {
         zoom: 12,
         center: {
-          lat: props.geoMap.latitude,
-          lng: props.geoMap.longitude,
+          lat: geoMap.coordinates.latitude,
+          lng: geoMap.coordinates.longitude,
         },
       });
     }
-  });
+
+    className += ` ${className}--visible`;
+  }
 
   return <div className={className} ref={mapEl} />;
 };
