@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-import { reducer as formReducer } from 'redux-form';
 
 export default combineReducers({
   modalWindow: require('@modal/modalWindowReducer').default,
@@ -29,5 +28,4 @@ export default combineReducers({
   postsSort: require('@sections/Posts/reducers/postsSort').default,
   geoCoordinates: require('@sections/Location/redux/geoCoordinatesReducer').default,
   geoMap: require('@sections/Location/redux/geoMapReducer').default,
-  form: formReducer,
 });
