@@ -8,6 +8,8 @@ import {
   WEATHER_FORECASTS_VIEW_CHANGED,
   WEATHER_CITY_SELECTED,
   WEATHER_TIME_PERIOD_CHANGED,
+  WEATHER_CITYINFO_OPEN,
+  WEATHER_CITYINFO_CLOSE,
 } from '@redux/types';
 
 export const forecastsFetch = (city) => async (dispatch) => {
@@ -20,6 +22,8 @@ export const forecastsFetch = (city) => async (dispatch) => {
     const forecasts = await nodeapiserver.get('/request/openweathermap', {
       params: { q: city, units: 'metric' },
     });
+
+    // console.log(forecasts.data);
 
     dispatch({
       type: WEATHER_FORECASTS_FETCH_SUCCESS,
@@ -65,4 +69,13 @@ export const citySelected = (city) => ({
 export const changeTimePeriod = (timePeriod = 'day') => ({
   type: WEATHER_TIME_PERIOD_CHANGED,
   timePeriod,
+});
+
+export const openCityInfo = (info) => ({
+  type: WEATHER_CITYINFO_OPEN,
+  info,
+});
+
+export const closeCityInfo = () => ({
+  type: WEATHER_CITYINFO_CLOSE,
 });

@@ -11,8 +11,11 @@ const ForecastItemHeader = (props) => (
           Show on the map
         </button>
       ) : null}
+      <button className='forecast__btn-info' onClick={props.onCityInfoClick}>
+        Get info about the city
+      </button>
       <button className='forecast__btn-delete' onClick={props.onForecastDelete}>
-        Remove from list
+        Remove from the list
       </button>
     </div>
   </div>
@@ -40,6 +43,7 @@ const ForecastItem = (props) => {
         cityName={props.forecast.city.name}
         onCitySelected={props.onCitySelected}
         onForecastDelete={props.onForecastDelete}
+        onCityInfoClick={props.onCityInfoClick}
         btnMap={props.btnMap}
       />
       <div className='forecast__body'>

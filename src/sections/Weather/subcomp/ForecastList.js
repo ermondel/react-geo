@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { forecastsDelete, citySelected } from '../actions/weather';
+import { forecastsDelete, citySelected, openCityInfo } from '../actions/weather';
 import ForecastItem from './ForecastItem';
 
 const ForecastList = (props) => (
@@ -12,8 +12,18 @@ const ForecastList = (props) => (
         btnMap={window.google && window.google.maps}
         key={forecast.city.id}
         timePeriod={props.timePeriod}
-        onForecastDelete={() => props.forecastsDelete(forecast.city.id)}
-        onCitySelected={() => props.citySelected(forecast.city)}
+        onForecastDelete={(event) => {
+          event.target.blur();
+          props.forecastsDelete(forecast.city.id);
+        }}
+        onCitySelected={(event) => {
+          event.target.blur();
+          props.citySelected(forecast.city);
+        }}
+        onCityInfoClick={(event) => {
+          event.target.blur();
+          props.openCityInfo(forecast.city);
+        }}
       />
     ))}
   </div>
@@ -25,4 +35,8 @@ const mapStateToProps = (state) => ({
   timePeriod: state.forecastTimePeriod,
 });
 
-export default connect(mapStateToProps, { forecastsDelete, citySelected })(ForecastList);
+export default connect(mapStateToProps, {
+  forecastsDelete,
+  citySelected,
+  openCityInfo,
+})(ForecastList);

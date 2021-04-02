@@ -20,7 +20,8 @@
 }
 
 .forecast__btn-map,
-.forecast__btn-delete {
+.forecast__btn-delete,
+.forecast__btn-info {
   background-color: transparent;
   color: $color-hue-3;
   padding: 5px 10px;
@@ -35,7 +36,13 @@
 
 .forecast__btn-delete:hover,
 .forecast__btn-delete:focus {
-  background-color: tomato;
+  background-color: $color-hover-2;
+  color: $color-common;
+}
+
+.forecast__btn-info:hover,
+.forecast__btn-info:focus {
+  background-color: $color-hover-3;
   color: $color-common;
 }
 

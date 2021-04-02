@@ -17,6 +17,7 @@ export default combineReducers({
   forecastView: require('@sections/Weather/reducers/forecastView').default,
   forecastCity: require('@sections/Weather/reducers/forecastCity').default,
   forecastTimePeriod: require('@sections/Weather/reducers/forecastTimePeriod').default,
+  forecastCityInfo: require('@sections/Weather/reducers/forecastCityInfo').default,
   postsList: require('@sections/Posts/reducers/postsList').default,
   postsView: require('@sections/Posts/reducers/postsView').default,
   postsAdding: require('@sections/Posts/reducers/postsAdding').default,
