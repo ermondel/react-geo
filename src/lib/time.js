@@ -1,30 +1,23 @@
 // convert seconds to hours
-export const secondsToHours = (seconds) => {
+export const secToHours = (seconds) => {
   const hours = seconds / (60 * 60);
 
   if (hours % 1 === 0) {
-    return String(hours);
+    return hours;
   }
 
-  return hours.toFixed(2);
+  return Number(hours.toFixed(2));
 };
 
-// convert seconds (shift in seconds from UTC) to hours (e.g. +3 UTC, -9 UTC)
-export const timezoneSecondsToHours = (seconds) => {
-  const hours = secondsToHours(seconds);
-
-  if (hours > 0) {
-    return `+${hours} UTC`;
-  } else if (hours < 0) {
-    return `${hours} UTC`;
-  } else {
-    return '0 UTC';
-  }
+// UTC string (e.g. +3 UTC, -9 UTC)
+export const strUTC = (val) => {
+  return val > 0 ? `+${val} UTC` : val < 0 ? `${val} UTC` : '0 UTC';
 };
 
-// convert unix time to 00:00 (UTC and shift in seconds)
-export const unixTimeToHM = (unixtime) => {
-  const date = new Date(unixtime * 1000);
+// convert unix time to str 00:00 (UTC, shift in seconds)
+export const strHMUTC = (unixtime, shift) => {
+  const timestamp = shift ? unixtime + shift : unixtime;
+  const date = new Date(timestamp * 1000);
 
   let hours = String(date.getUTCHours());
   let minutes = String(date.getUTCMinutes());
