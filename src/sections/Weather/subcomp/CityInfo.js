@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import InfoBlock from '@sidebar/InfoBlock';
-import { closeCityInfo } from '../actions/weather';
+import { closeCityInfo } from '../actions/common';
 import { secToHours, strUTC, strHMUTC } from '@lib/time';
 
 const CityInfo = ({ city, closeCityInfo }) => {

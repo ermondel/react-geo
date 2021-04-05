@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { forecastsDisableError } from '../actions/weather';
+import { disableError } from '../actions/common';
 
 class ForecastErrorInfo extends Component {
   errors = {
@@ -10,12 +10,12 @@ class ForecastErrorInfo extends Component {
 
   componentWillUnmount() {
     if (this.props.error) {
-      this.props.forecastsDisableError();
+      this.props.disableError();
     }
   }
 
   onCloseClick = () => {
-    this.props.forecastsDisableError();
+    this.props.disableError();
   };
 
   render() {
@@ -46,4 +46,4 @@ class ForecastErrorInfo extends Component {
 
 const mapStateToProps = (state) => ({ error: state.forecastError });
 
-export default connect(mapStateToProps, { forecastsDisableError })(ForecastErrorInfo);
+export default connect(mapStateToProps, { disableError })(ForecastErrorInfo);

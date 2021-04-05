@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { forecastsFetch } from '../actions/weather';
+import { fetchForecast } from '../actions/middleware';
 
-const ForecastsSearchForm = ({ spinner, forecastsFetch }) => {
+const ForecastsSearchForm = ({ spinner, fetchForecast }) => {
   const onSubmit = (event) => {
     event.preventDefault();
 
     const city = event.target.forecast_query_input.value.trim();
 
     if (city) {
-      forecastsFetch(city);
+      fetchForecast(city);
     }
 
     event.target.forecast_query_input.value = '';
@@ -39,4 +39,4 @@ const ForecastsSearchForm = ({ spinner, forecastsFetch }) => {
 
 const mapStateToProps = (state) => ({ spinner: state.forecastSpinner });
 
-export default connect(mapStateToProps, { forecastsFetch })(ForecastsSearchForm);
+export default connect(mapStateToProps, { fetchForecast })(ForecastsSearchForm);

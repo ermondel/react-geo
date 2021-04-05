@@ -1,3 +1,5 @@
+import { NIGHT, EVENING, AFTERNOON, MORNING } from '../types/weatherTimePeriod';
+
 export default (list, timePeriod) => {
   const temperatureList = [];
   const pressureList = [];
@@ -21,16 +23,16 @@ export default (list, timePeriod) => {
     const hours = new Date(forecastDate).getHours();
 
     switch (filterName) {
-      case 'morning':
+      case MORNING:
         return hours >= 6 && hours < 12;
 
-      case 'afternoon':
+      case AFTERNOON:
         return hours >= 12 && hours < 18;
 
-      case 'evening':
+      case EVENING:
         return hours >= 18;
 
-      case 'night':
+      case NIGHT:
         return hours >= 0 && hours < 6;
 
       default:

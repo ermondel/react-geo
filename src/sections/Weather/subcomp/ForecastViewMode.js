@@ -1,24 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { forecastsViewMode } from '../actions/weather';
+import { changeViewMode } from '../actions/common';
 import BtnsBlock from '@sidebar/BtnsBlock';
 import BtnsBlockItem from '@buttons/BtnsBlockItem';
+import { LINE, BARS } from '../types/weatherViewMode';
 
-const ForecastViewMode = ({ view, forecastsViewMode }) => (
+const ForecastViewMode = ({ view, changeViewMode }) => (
   <BtnsBlock>
     <BtnsBlockItem
       value={'Line'}
-      disabled={view === 'line'}
-      onClick={() => forecastsViewMode('line')}
+      disabled={view === LINE}
+      onClick={() => changeViewMode(LINE)}
     />
     <BtnsBlockItem
       value={'Bars'}
-      disabled={view === 'bars'}
-      onClick={() => forecastsViewMode('bars')}
+      disabled={view === BARS}
+      onClick={() => changeViewMode(BARS)}
     />
   </BtnsBlock>
 );
 
 const mapStateToProps = (state) => ({ view: state.forecastView });
 
-export default connect(mapStateToProps, { forecastsViewMode })(ForecastViewMode);
+export default connect(mapStateToProps, { changeViewMode })(ForecastViewMode);

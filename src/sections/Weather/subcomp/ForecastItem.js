@@ -1,25 +1,7 @@
 import React from 'react';
 import Sparkline from './Sparkline';
 import weatherData from '../util/weatherData';
-
-const ForecastItemHeader = (props) => (
-  <div className='forecast__header'>
-    <h3 className='forecast__title'>{props.cityName}</h3>
-    <div className='forecast__btns'>
-      {props.btnMap ? (
-        <button className='forecast__btn-map' onClick={props.onCitySelected}>
-          Show on the map
-        </button>
-      ) : null}
-      <button className='forecast__btn-info' onClick={props.onCityInfoClick}>
-        Get info about the city
-      </button>
-      <button className='forecast__btn-delete' onClick={props.onForecastDelete}>
-        Remove from the list
-      </button>
-    </div>
-  </div>
-);
+import ForecastItemHeader from './ForecastItemHeader';
 
 const ForecastItem = (props) => {
   const colors = {
@@ -41,9 +23,9 @@ const ForecastItem = (props) => {
     <div className='forecast'>
       <ForecastItemHeader
         cityName={props.forecast.city.name}
-        onCitySelected={props.onCitySelected}
-        onForecastDelete={props.onForecastDelete}
+        onCityMapClick={props.onCityMapClick}
         onCityInfoClick={props.onCityInfoClick}
+        onCityRemoveClick={props.onCityRemoveClick}
         btnMap={props.btnMap}
       />
       <div className='forecast__body'>

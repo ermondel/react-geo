@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import weatherReducers from '@sections/Weather/reducers/list';
 
 export default combineReducers({
   modalWindow: require('@modal/modalWindowReducer').default,
@@ -11,13 +12,6 @@ export default combineReducers({
   bookActive: require('@sections/Books/reducers/bookActive').default,
   booksView: require('@sections/Books/reducers/booksView').default,
   bookSearch: require('@sections/Books/reducers/bookSearch').default,
-  forecastList: require('@sections/Weather/reducers/forecastList').default,
-  forecastSpinner: require('@sections/Weather/reducers/forecastSpinner').default,
-  forecastError: require('@sections/Weather/reducers/forecastError').default,
-  forecastView: require('@sections/Weather/reducers/forecastView').default,
-  forecastCity: require('@sections/Weather/reducers/forecastCity').default,
-  forecastTimePeriod: require('@sections/Weather/reducers/forecastTimePeriod').default,
-  forecastCityInfo: require('@sections/Weather/reducers/forecastCityInfo').default,
   postsList: require('@sections/Posts/reducers/postsList').default,
   postsView: require('@sections/Posts/reducers/postsView').default,
   postsAdding: require('@sections/Posts/reducers/postsAdding').default,
@@ -29,4 +23,5 @@ export default combineReducers({
   postsSort: require('@sections/Posts/reducers/postsSort').default,
   geoCoordinates: require('@sections/Location/redux/geoCoordinatesReducer').default,
   geoMap: require('@sections/Location/redux/geoMapReducer').default,
+  ...weatherReducers,
 });
