@@ -1,8 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { removePost, resetRemoveStatus } from '../actions/posts';
+import { removePost } from '../actions/middleware';
+import { resetRemoveStatus } from '../actions/common';
 import { ModalWindow, modalClose } from '@modal/ModalWindow';
 import { ErrorRemote, SpinnerBig } from '@subcomponents/UtilImages';
+import {
+  DENIED,
+  CONFIRM,
+  REMOVING,
+  SUCCESS,
+  FAILURE,
+  DEFAULT,
+} from '../types/postsStatuses';
 
 const RemovePostConfirm = ({ postName, onRemove, onClose }) => (
   <div className='modal-remove-post'>
@@ -113,13 +122,13 @@ const ModalRemovePost = (props) => {
   let $status;
 
   if (!props.authData || !props.authData.publicKey) {
-    $status = 'denied';
+    $status = DENIED;
   } else {
     $status = props.removing.status;
   }
 
   switch ($status) {
-    case 'confirm':
+    case CONFIRM:
       return (
         <ModalWindow visible={props.visible} onClose={closeModal} modifier='remove-post'>
           <RemovePostConfirm
@@ -130,35 +139,35 @@ const ModalRemovePost = (props) => {
         </ModalWindow>
       );
 
-    case 'removing':
+    case REMOVING:
       return (
         <ModalWindow visible={props.visible} onClose={closeModal} modifier='remove-post'>
           <RemovePostSpinner />
         </ModalWindow>
       );
 
-    case 'success':
+    case SUCCESS:
       return (
         <ModalWindow visible={props.visible} onClose={closeModal} modifier='remove-post'>
           <RemovePostSuccess postName={props.removing.post.title} onClose={closeModal} />
         </ModalWindow>
       );
 
-    case 'failure':
+    case FAILURE:
       return (
         <ModalWindow visible={props.visible} onClose={closeModal} modifier='remove-post'>
           <RemovePostError title={props.removing.post.title} onClose={closeModal} />
         </ModalWindow>
       );
 
-    case 'denied':
+    case DENIED:
       return (
         <ModalWindow visible={props.visible} onClose={closeModal} modifier='remove-post'>
           <RemovePostAccessDenied onClose={closeModal} />
         </ModalWindow>
       );
 
-    case 'default':
+    case DEFAULT:
     default:
       return null;
   }

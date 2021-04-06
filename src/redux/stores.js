@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import weatherReducers from '@sections/Weather/reducers/list';
+import postsReducers from '@sections/Posts/reducers/list';
 
 export default combineReducers({
   modalWindow: require('@modal/modalWindowReducer').default,
@@ -12,16 +13,8 @@ export default combineReducers({
   bookActive: require('@sections/Books/reducers/bookActive').default,
   booksView: require('@sections/Books/reducers/booksView').default,
   bookSearch: require('@sections/Books/reducers/bookSearch').default,
-  postsList: require('@sections/Posts/reducers/postsList').default,
-  postsView: require('@sections/Posts/reducers/postsView').default,
-  postsAdding: require('@sections/Posts/reducers/postsAdding').default,
-  postsRemoving: require('@sections/Posts/reducers/postsRemoving').default,
-  postsStatus: require('@sections/Posts/reducers/postsStatus').default,
-  postsAuth: require('@sections/Posts/reducers/postsAuth').default,
-  postsMessage: require('@sections/Posts/reducers/postsMessage').default,
-  postsSearch: require('@sections/Posts/reducers/postsSearch').default,
-  postsSort: require('@sections/Posts/reducers/postsSort').default,
   geoCoordinates: require('@sections/Location/redux/geoCoordinatesReducer').default,
   geoMap: require('@sections/Location/redux/geoMapReducer').default,
+  ...postsReducers,
   ...weatherReducers,
 });

@@ -1,5 +1,6 @@
-import { MODAL_OPEN, MODAL_CLOSE, POSTS_REMOVE_CONFIRM } from '@redux/types';
+import { MODAL_OPEN, MODAL_CLOSE } from '@redux/types';
 import { WEATHER_OPEN_CITY_MAP } from '@sections/Weather/types/weatherReduxTypes';
+import { POSTS_REMOVE_CONFIRM } from '@sections/Posts/types/postsReduxTypes';
 
 export default (state = false, action) => {
   switch (action.type) {

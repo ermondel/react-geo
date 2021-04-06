@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { removePostConfirm } from '../actions/posts';
+import { removePostConfirm } from '../actions/common';
 import ListItem from './ListItem';
 import { filterObjListByQuery } from '@lib/filters';
+import { OLD } from '../types/postsSortType';
 
 const PostList = ({ postsList, sortType, searchQuery, removePostConfirm }) => {
   let posts;
 
-  if (sortType === 'old') {
+  if (sortType === OLD) {
     posts = postsList.map((val, i, arr) => arr[arr.length - i - 1]);
   } else {
     posts = [...postsList];

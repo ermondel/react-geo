@@ -1,20 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { sortByDate } from '../actions/posts';
+import { sortByDate } from '../actions/common';
 import BtnsBlock from '@sidebar/BtnsBlock';
 import BtnsBlockItem from '@buttons/BtnsBlockItem';
+import { NEW, OLD } from '../types/postsSortType';
 
 const SortSwitch = ({ type, sortByDate }) => (
   <BtnsBlock>
     <BtnsBlockItem
       value={'new'}
-      disabled={type === 'new'}
-      onClick={() => sortByDate('new')}
+      disabled={type === NEW}
+      onClick={() => sortByDate(NEW)}
     />
     <BtnsBlockItem
       value={'old'}
-      disabled={type === 'old'}
-      onClick={() => sortByDate('old')}
+      disabled={type === OLD}
+      onClick={() => sortByDate(OLD)}
     />
   </BtnsBlock>
 );

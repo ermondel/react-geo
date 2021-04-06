@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { removePostConfirm, resetViewStatus } from '../actions/posts';
+import { removePostConfirm, resetViewStatus } from '../actions/common';
 import PostItem from './PostItem';
+import { DEFAULT, DELETED } from '../types/postsStatuses';
 
 class View extends Component {
   componentWillUnmount() {
-    if (this.props.status !== 'default') this.props.resetViewStatus();
+    if (this.props.status !== DEFAULT) {
+      this.props.resetViewStatus();
+    }
   }
 
   searchPost() {
@@ -31,17 +34,18 @@ class View extends Component {
   }
 
   render() {
-    if (this.props.status === 'deleted') return <Redirect to='/posts' />;
+    if (this.props.status === DELETED) {
+      return <Redirect to='/posts' />;
+    }
 
     const post = this.searchPost();
 
-    if (!post) return this.renderNotFound();
+    if (!post) {
+      return this.renderNotFound();
+    }
 
     return (
-      <PostItem
-        post={post}
-        onRemoveClick={() => this.props.removePostConfirm(post)}
-      />
+      <PostItem post={post} onRemoveClick={() => this.props.removePostConfirm(post)} />
     );
   }
 }

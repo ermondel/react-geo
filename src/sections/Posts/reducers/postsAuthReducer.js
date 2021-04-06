@@ -2,7 +2,7 @@ import {
   POSTS_AUTH_SUCCESS,
   POSTS_AUTH_REQUEST,
   POSTS_AUTH_FAILURE,
-} from '@redux/types';
+} from '../types/postsReduxTypes';
 
 const defaultState = { publicKey: '' };
 

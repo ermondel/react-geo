@@ -1,0 +1,11 @@
+export const SAVING = 'SAVING';
+export const LOADING = 'LOADING';
+export const REMOVING = 'REMOVING';
+export const SUCCESS = 'SUCCESS';
+export const FAILURE = 'FAILURE';
+export const CONFIRM = 'CONFIRM';
+export const AUTH = 'AUTH';
+export const ALLOW = 'ALLOW';
+export const DENIED = 'DENIED';
+export const DEFAULT = 'DEFAULT';
+export const DELETED = 'DELETED';

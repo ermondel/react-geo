@@ -3,21 +3,22 @@ import {
   POSTS_ADDING_SUCCESS,
   POSTS_ADDING_FAILURE,
   POSTS_ADDING_RESET,
-} from '@redux/types';
+} from '../types/postsReduxTypes';
+import { SAVING, SUCCESS, FAILURE, DEFAULT } from '../types/postsStatuses';
 
-export default (state = 'default', action) => {
+export default (state = DEFAULT, action) => {
   switch (action.type) {
     case POSTS_ADDING_REQUEST:
-      return 'saving';
+      return SAVING;
 
     case POSTS_ADDING_SUCCESS:
-      return 'success';
+      return SUCCESS;
 
     case POSTS_ADDING_FAILURE:
-      return 'failure';
+      return FAILURE;
 
     case POSTS_ADDING_RESET:
-      return 'default';
+      return DEFAULT;
 
     default:
       return state;

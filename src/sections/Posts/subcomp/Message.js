@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { removeMessage } from '../actions/posts';
+import { removeMessage } from '../actions/common';
 
 class Message extends Component {
   componentWillUnmount() {
@@ -25,8 +25,6 @@ class Message extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  message: state.postsMessage,
-});
+const mapStateToProps = (state) => ({ message: state.postsMessage });
 
 export default connect(mapStateToProps, { removeMessage })(Message);

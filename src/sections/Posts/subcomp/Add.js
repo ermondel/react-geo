@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { createPost, resetAddStatus } from '../actions/posts';
 import AddForm from './AddForm';
+import { createPost } from '../actions/middleware';
+import { resetAddStatus } from '../actions/common';
 import { SavingSpinner, SavingError } from './Service';
+import { SAVING, SUCCESS, FAILURE, DEFAULT } from '../types/postsStatuses';
 
 class Add extends Component {
   componentWillUnmount() {
-    if (this.props.status !== 'default') this.props.resetAddStatus();
+    if (this.props.status !== DEFAULT) {
+      this.props.resetAddStatus();
+    }
   }
 
   addPost = (newValues) => {
@@ -16,16 +20,16 @@ class Add extends Component {
 
   renderContent() {
     switch (this.props.status) {
-      case 'saving':
+      case SAVING:
         return <SavingSpinner />;
 
-      case 'success':
+      case SUCCESS:
         return <Redirect to='/posts' />;
 
-      case 'failure':
+      case FAILURE:
         return <SavingError />;
 
-      case 'default':
+      case DEFAULT:
       default:
         return <AddForm onSubmit={this.addPost} />;
     }
