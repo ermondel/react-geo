@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setCoordinates } from '../redux/actions';
+import { setCoordinates } from '../actions/common';
 import useLocation from '../resources/useLocation';
 import { SpinnerBig } from '@subcomponents/UtilImages';
 import GeoLocationMapInfo from './GeoLocationMapInfo';

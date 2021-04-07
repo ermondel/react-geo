@@ -1,4 +1,4 @@
-import { GEOLOCATION_OPEN_MAP, GEOLOCATION_CLOSE_MAP } from './types';
+import { GEOLOCATION_OPEN_MAP, GEOLOCATION_CLOSE_MAP } from '../types/locationReduxTypes';
 
 const defaultState = {
   coordinates: null,

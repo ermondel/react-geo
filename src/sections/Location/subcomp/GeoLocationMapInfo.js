@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { openGeoMap } from '../redux/actions';
+import { openGeoMap } from '../actions/common';
 import { NONE, LOADING, READY, ERROR } from '@googlemap/MountMapStatuses';
 
 const GeoLocationMapInfo = (props) => {

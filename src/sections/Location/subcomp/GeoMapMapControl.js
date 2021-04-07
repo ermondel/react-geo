@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { closeGeoMap } from '../redux/actions';
+import { closeGeoMap } from '../actions/common';
 import BtnsBlock from '@sidebar/BtnsBlock';
 import BtnsBlockItem from '@buttons/BtnsBlockItem';
 

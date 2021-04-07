@@ -1,5 +1,8 @@
-import { GEOLOCATION_SET_COORDINATES } from './types';
-import { GEOLOCATION_OPEN_MAP, GEOLOCATION_CLOSE_MAP } from './types';
+import {
+  GEOLOCATION_SET_COORDINATES,
+  GEOLOCATION_OPEN_MAP,
+  GEOLOCATION_CLOSE_MAP,
+} from '../types/locationReduxTypes';
 
 export const setCoordinates = (coordinates) => ({
   type: GEOLOCATION_SET_COORDINATES,
