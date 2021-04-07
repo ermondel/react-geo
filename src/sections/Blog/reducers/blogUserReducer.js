@@ -1,4 +1,4 @@
-import { BLOG_USER_SELECTED, BLOG_USER_CLOSE } from '@redux/types';
+import { BLOG_USER_SELECTED, BLOG_USER_CLOSE } from '../types/blogReduxTypes';
 
 export default (state = null, action) => {
   switch (action.type) {

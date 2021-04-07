@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import InfoBlock from '@sidebar/InfoBlock';
-import { closeBlogUser } from '../actions/blog';
+import { closeBlogUser } from '../actions/common';
 
 const UserDetails = ({ user, closeBlogUser }) => {
   return user ? (

@@ -1,4 +1,7 @@
-import { BLOG_POSTS_FETCH_FAILURE, BLOG_POSTS_FETCH_REQUEST } from '@redux/types';
+import {
+  BLOG_POSTS_FETCH_FAILURE,
+  BLOG_POSTS_FETCH_REQUEST,
+} from '../types/blogReduxTypes';
 
 export default (state = null, action) => {
   switch (action.type) {

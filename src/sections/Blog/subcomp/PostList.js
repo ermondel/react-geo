@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchBlogPosts, selectBlogUser } from '../actions/blog';
+import { fetchBlogPosts } from '../actions/middleware';
+import { selectBlogUser } from '../actions/common';
 import PostItem from './PostItem';
 
 class PostList extends Component {
@@ -11,7 +12,11 @@ class PostList extends Component {
   }
 
   render() {
-    return this.props.posts.length ? (
+    if (!this.props.posts.length) {
+      return null;
+    }
+
+    return (
       <div className='post-list'>
         {this.props.posts.map((post) => (
           <PostItem
@@ -22,7 +27,7 @@ class PostList extends Component {
           />
         ))}
       </div>
-    ) : null;
+    );
   }
 }
 
