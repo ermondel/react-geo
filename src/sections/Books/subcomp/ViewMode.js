@@ -1,20 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changeBooksView } from '../actions/books';
+import { changeBooksView } from '../actions/common';
 import BtnsBlock from '@sidebar/BtnsBlock';
 import BtnsBlockItem from '@buttons/BtnsBlockItem';
+import { LIST, GALLERY } from '../types/booksViewMode';
 
 const ViewMode = ({ view, changeBooksView }) => (
   <BtnsBlock>
     <BtnsBlockItem
       value={'List'}
-      disabled={view === 'list'}
-      onClick={() => changeBooksView('list')}
+      disabled={view === LIST}
+      onClick={() => changeBooksView(LIST)}
     />
     <BtnsBlockItem
       value={'Gallery'}
-      disabled={view === 'gallery'}
-      onClick={() => changeBooksView('gallery')}
+      disabled={view === GALLERY}
+      onClick={() => changeBooksView(GALLERY)}
     />
   </BtnsBlock>
 );

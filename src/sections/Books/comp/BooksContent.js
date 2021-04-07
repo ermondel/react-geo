@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { selectBook, bookSearch } from '../actions/books';
+import { selectBook, bookSearch } from '../actions/common';
 import SearchForm from '../subcomp/SearchForm';
 import CommonList from '../subcomp/CommonList';
 import CoverGallery from '../subcomp/CoverGallery';
 import booksSource from '../sources/booksSource';
 import { filterObjListByQuery } from '@lib/filters';
+import { LIST, GALLERY } from '../types/booksViewMode';
 
 const BooksContent = (props) => (
   <main className='main'>
@@ -13,14 +14,14 @@ const BooksContent = (props) => (
 
     <SearchForm query={props.query} onSearch={props.bookSearch} />
 
-    {props.viewMode === 'list' && (
+    {props.viewMode === LIST && (
       <CommonList
         books={props.books}
         activeID={props.activeID}
         onBookSelect={props.selectBook}
       />
     )}
-    {props.viewMode === 'gallery' && (
+    {props.viewMode === GALLERY && (
       <CoverGallery
         books={props.books}
         activeID={props.activeID}

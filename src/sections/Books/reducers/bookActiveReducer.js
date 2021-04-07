@@ -1,4 +1,4 @@
-import { BOOKS_ITEM_SELECTED, BOOKS_ITEM_CLOSE } from '@redux/types';
+import { BOOKS_ITEM_SELECTED, BOOKS_ITEM_CLOSE } from '../types/booksReduxTypes';
 
 export default (state = null, action) => {
   switch (action.type) {

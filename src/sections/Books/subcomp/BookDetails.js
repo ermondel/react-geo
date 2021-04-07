@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import InfoBlock from '@sidebar/InfoBlock';
-import { closeBook } from '../actions/books';
+import { closeBook } from '../actions/common';
 
 const BookDetails = ({ book, closeBook }) => {
   return book ? (
