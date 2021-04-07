@@ -1,4 +1,4 @@
-import { MODAL_OPEN, MODAL_CLOSE } from '@redux/types';
+import { MODAL_OPEN, MODAL_CLOSE } from './modalWindowReduxTypes';
 import { WEATHER_OPEN_CITY_MAP } from '@sections/Weather/types/weatherReduxTypes';
 import { POSTS_REMOVE_CONFIRM } from '@sections/Posts/types/postsReduxTypes';
 
