@@ -24,6 +24,8 @@ My personal idea of a platform for completed ReactJS course tasks.
 - [Axios](https://www.npmjs.com/package/axios)
 - [Sass](https://sass-lang.com)
 - [Webpack](https://webpack.js.org)
+- [Jest](https://jestjs.io)
+- [Formik](https://formik.org)
 - [OpenWeatherMap API](https://openweathermap.org/api)
 - [Google Maps API](https://developers.google.com/maps)
 - [JSONPlaceholder API](https://jsonplaceholder.typicode.com)
