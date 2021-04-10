@@ -1,21 +1,29 @@
-import React, { useRef } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-const GeoMap = ({ geoMap }) => {
-  const mapEl = useRef(null);
+class GeoMap extends Component {
+  constructor(props) {
+    super(props);
 
-  let className = 'geolocation-map';
+    this.mapEl = React.createRef();
+    this.className = 'geolocation-map';
+  }
 
-  if (
-    geoMap.visible &&
-    geoMap.coordinates &&
-    geoMap.coordinates.latitude &&
-    geoMap.coordinates.longitude &&
-    window.google &&
-    window.google.maps
-  ) {
-    if (!mapEl.current.hasChildNodes()) {
-      new window.google.maps.Map(mapEl.current, {
+  mountMap() {
+    if (!this.mapEl.current || this.mapEl.current.hasChildNodes()) {
+      return;
+    }
+
+    const { geoMap } = this.props;
+
+    if (
+      geoMap.coordinates &&
+      geoMap.coordinates.latitude &&
+      geoMap.coordinates.longitude &&
+      window.google &&
+      window.google.maps
+    ) {
+      new window.google.maps.Map(this.mapEl.current, {
         zoom: 12,
         center: {
           lat: geoMap.coordinates.latitude,
@@ -23,12 +31,26 @@ const GeoMap = ({ geoMap }) => {
         },
       });
     }
-
-    className += ` ${className}--visible`;
   }
 
-  return <div className={className} ref={mapEl} />;
-};
+  componentDidMount() {
+    if (this.props.geoMap.visible) {
+      this.mountMap();
+    }
+  }
+
+  render() {
+    let { className } = this;
+
+    if (this.props.geoMap.visible) {
+      this.mountMap();
+
+      className += ` ${className}--visible`;
+    }
+
+    return <div className={className} ref={this.mapEl} />;
+  }
+}
 
 const mapStateToProps = (state) => ({ geoMap: state.geoMap });
 
