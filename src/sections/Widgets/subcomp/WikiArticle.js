@@ -1,5 +1,5 @@
 import React from 'react';
-import { stripHTMLTags } from '@lib/strip';
+import { stripHTMLTags } from '@lib/str';
 
 const WikiArticle = ({ page }) => (
   <article className='wiki-article'>

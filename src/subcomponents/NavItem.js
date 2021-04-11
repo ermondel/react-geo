@@ -1,17 +1,15 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { includesPath } from '@lib/path';
+import { pathA_B } from '@lib/str';
 
 const NavItem = ({ children, to, block, visible = true }) => {
-  const pathname = useLocation().pathname;
+  const currentPath = useLocation().pathname;
 
   if (!visible) {
     return null;
   }
 
-  const toHome = to === '/' && pathname !== '/';
-
-  if (!toHome && includesPath(to, pathname)) {
+  if (pathA_B(to, currentPath)) {
     return (
       <li className={block + '__item'}>
         <span className={block + '__link--active'}>{children}</span>

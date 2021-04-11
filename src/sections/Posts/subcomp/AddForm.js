@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Formik } from 'formik';
-import { cleanCategories } from '@lib/str';
+import { trimCSstr } from '@lib/str';
 
 const FormField = (props) => {
   let inputClassName = 'add-form__input';
@@ -123,7 +123,7 @@ const AddForm = (props) => {
         return errors;
       }}
       onSubmit={(values) => {
-        values.categories = cleanCategories(values.categories);
+        values.categories = trimCSstr(values.categories);
         props.onSubmit(values);
       }}
     >

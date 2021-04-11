@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { includes } from '@lib/str';
+import { strIncludes } from '@lib/str';
 
 const SearchForm = (props) => {
   return (
@@ -17,7 +17,9 @@ const SearchForm = (props) => {
 };
 
 const MenuItem = (props) => {
-  if (props.query && !includes(props.item.label, props.query)) return null;
+  if (props.query && !strIncludes(props.item.label, props.query)) {
+    return null;
+  }
 
   const isActive = props.activeValue === props.item.value;
 
