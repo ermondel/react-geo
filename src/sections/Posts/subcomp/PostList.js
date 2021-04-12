@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { removePostConfirm } from '../actions/common';
-import ListItem from './ListItem';
+import PostListItem from './PostListItem';
 import { filterObjListByQuery } from '@lib/filters';
 import { OLD } from '../types/postsSortType';
 
@@ -25,7 +25,7 @@ const PostList = ({ postsList, sortType, searchQuery, removePostConfirm }) => {
   return (
     <div className='pst-list'>
       {posts.map((post) => (
-        <ListItem
+        <PostListItem
           key={post.id}
           post={post}
           onRemoveClick={() => removePostConfirm(post)}

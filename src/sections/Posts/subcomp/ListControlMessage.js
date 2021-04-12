@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { removeMessage } from '../actions/common';
 
-class Message extends Component {
+class ListControlMessage extends Component {
   componentWillUnmount() {
     if (this.props.message) {
       this.props.removeMessage();
@@ -27,4 +27,4 @@ class Message extends Component {
 
 const mapStateToProps = (state) => ({ message: state.postsMessage });
 
-export default connect(mapStateToProps, { removeMessage })(Message);
+export default connect(mapStateToProps, { removeMessage })(ListControlMessage);

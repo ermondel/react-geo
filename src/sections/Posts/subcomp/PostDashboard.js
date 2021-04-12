@@ -3,16 +3,14 @@ import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { fetchPosts, fetchPostsAuth } from '../actions/middleware';
 import { resetStatus } from '../actions/common';
-import List from '../subcomp/List';
-import Add from '../subcomp/Add';
-import View from '../subcomp/View';
-import {
-  AuthSpinner,
-  AuthSuccess,
-  AuthError,
-  LoadingSpinner,
-  LoadingError,
-} from '../subcomp/Service';
+import ListPage from './ListPage';
+import AddPage from './AddPage';
+import ViewPage from './ViewPage';
+import LoadingSpinner from './LoadingSpinner';
+import AuthSpinner from './AuthSpinner';
+import LoadingError from './LoadingError';
+import AuthError from './AuthError';
+import AuthSuccess from './AuthSuccess';
 import {
   AUTH,
   ALLOW,
@@ -23,7 +21,7 @@ import {
   DEFAULT,
 } from '../types/postsStatuses';
 
-class Dashboard extends Component {
+class PostDashboard extends Component {
   componentDidMount() {
     if (!this.props.postsList.length) {
       if (this.props.authData.publicKey) {
@@ -61,9 +59,9 @@ class Dashboard extends Component {
       default:
         return (
           <Switch>
-            <Route path='/posts' exact component={List} />
-            <Route path='/posts/add' exact component={Add} />
-            <Route path='/posts/:id' exact component={View} />
+            <Route path='/posts' exact component={ListPage} />
+            <Route path='/posts/add' exact component={AddPage} />
+            <Route path='/posts/:id' exact component={ViewPage} />
           </Switch>
         );
     }
@@ -84,4 +82,4 @@ export default connect(mapStateToProps, {
   fetchPosts,
   fetchPostsAuth,
   resetStatus,
-})(Dashboard);
+})(PostDashboard);

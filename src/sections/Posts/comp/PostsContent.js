@@ -1,10 +1,10 @@
 import React from 'react';
-import Dashboard from '../subcomp/Dashboard';
+import PostDashboard from '../subcomp/PostDashboard';
 import ModalRemovePost from '../subcomp/ModalRemovePost';
 
 const PostsContent = () => (
   <main className='main'>
-    <Dashboard />
+    <PostDashboard />
     <ModalRemovePost />
   </main>
 );

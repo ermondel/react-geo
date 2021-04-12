@@ -5,7 +5,7 @@ import BtnsBlock from '@sidebar/BtnsBlock';
 import BtnsBlockItem from '@buttons/BtnsBlockItem';
 import { NEW, OLD } from '../types/postsSortType';
 
-const SortSwitch = ({ type, sortByDate }) => (
+const SidebarSortSwitch = ({ type, sortByDate }) => (
   <BtnsBlock>
     <BtnsBlockItem
       value={'new'}
@@ -22,4 +22,4 @@ const SortSwitch = ({ type, sortByDate }) => (
 
 const mapStateToProps = (state) => ({ type: state.postsSort });
 
-export default connect(mapStateToProps, { sortByDate })(SortSwitch);
+export default connect(mapStateToProps, { sortByDate })(SidebarSortSwitch);

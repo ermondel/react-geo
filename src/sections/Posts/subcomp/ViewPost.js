@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const PostItem = ({ post, onRemoveClick }) => {
+const ViewPost = ({ post, onRemoveClick }) => {
   return (
     <article className='view-post'>
       <h3 className='view-post__title'>{post.title}</h3>
@@ -19,4 +19,4 @@ const PostItem = ({ post, onRemoveClick }) => {
   );
 };
 
-export default PostItem;
+export default ViewPost;

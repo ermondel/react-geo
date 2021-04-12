@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ListItem = ({ post, onRemoveClick }) => (
+const PostListItem = ({ post, onRemoveClick }) => (
   <article className='pst-list__item'>
     <div className='pst-list__content'>
       <h3 className='pst-list__title'>
@@ -17,4 +17,4 @@ const ListItem = ({ post, onRemoveClick }) => (
   </article>
 );
 
-export default ListItem;
+export default PostListItem;

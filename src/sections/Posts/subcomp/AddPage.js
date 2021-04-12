@@ -4,17 +4,18 @@ import { Redirect } from 'react-router-dom';
 import AddForm from './AddForm';
 import { createPost } from '../actions/middleware';
 import { resetAddStatus } from '../actions/common';
-import { SavingSpinner, SavingError } from './Service';
+import SavingSpinner from './SavingSpinner';
+import SavingError from './SavingError';
 import { SAVING, SUCCESS, FAILURE, DEFAULT } from '../types/postsStatuses';
 
-class Add extends Component {
+class AddPage extends Component {
   componentWillUnmount() {
     if (this.props.status !== DEFAULT) {
       this.props.resetAddStatus();
     }
   }
 
-  addPost = (newValues) => {
+  createPost = (newValues) => {
     this.props.createPost(this.props.authData.publicKey, newValues);
   };
 
@@ -31,7 +32,7 @@ class Add extends Component {
 
       case DEFAULT:
       default:
-        return <AddForm onSubmit={this.addPost} />;
+        return <AddForm onSubmit={this.createPost} />;
     }
   }
 
@@ -51,4 +52,4 @@ const mapStateToProps = (state) => ({
   authData: state.postsAuth,
 });
 
-export default connect(mapStateToProps, { createPost, resetAddStatus })(Add);
+export default connect(mapStateToProps, { createPost, resetAddStatus })(AddPage);

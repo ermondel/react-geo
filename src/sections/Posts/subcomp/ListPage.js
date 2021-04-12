@@ -2,7 +2,7 @@ import React from 'react';
 import PostList from './PostList';
 import ListControl from './ListControl';
 
-const List = () => (
+const ListPage = () => (
   <div>
     <h2 className='main__title'>Post list</h2>
 
@@ -11,4 +11,4 @@ const List = () => (
   </div>
 );
 
-export default List;
+export default ListPage;

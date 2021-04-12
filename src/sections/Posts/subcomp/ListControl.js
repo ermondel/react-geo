@@ -1,13 +1,13 @@
 import React from 'react';
-import SearchForm from './SearchForm';
-import Message from './Message';
-import ListActions from './ListActions';
+import ListControlFilter from './ListControlFilter';
+import ListControlActions from './ListControlActions';
+import ListControlMessage from './ListControlMessage';
 
 const ListControl = () => (
   <div className='list-ctrl'>
-    <SearchForm />
-    <ListActions />
-    <Message />
+    <ListControlFilter />
+    <ListControlActions />
+    <ListControlMessage />
   </div>
 );
 

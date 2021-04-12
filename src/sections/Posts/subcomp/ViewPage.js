@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { removePostConfirm, resetViewStatus } from '../actions/common';
-import PostItem from './PostItem';
+import ViewPost from './ViewPost';
 import { DEFAULT, DELETED } from '../types/postsStatuses';
 
-class View extends Component {
+class ViewPage extends Component {
   componentWillUnmount() {
     if (this.props.status !== DEFAULT) {
       this.props.resetViewStatus();
@@ -45,7 +45,7 @@ class View extends Component {
     }
 
     return (
-      <PostItem post={post} onRemoveClick={() => this.props.removePostConfirm(post)} />
+      <ViewPost post={post} onRemoveClick={() => this.props.removePostConfirm(post)} />
     );
   }
 }
@@ -58,4 +58,4 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
   removePostConfirm,
   resetViewStatus,
-})(View);
+})(ViewPage);
