@@ -90,8 +90,14 @@ const DropdownMenu = (props) => {
 
   // closing the menu by clicking outside its boundaries
   useEffect(() => {
-    const onBodyClick = (e) => !ref.current.contains(e.target) && setOpen(false);
+    const onBodyClick = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+
     document.body.addEventListener('click', onBodyClick);
+
     return () => document.body.removeEventListener('click', onBodyClick);
   }, []);
 
